@@ -39,3 +39,10 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+.vercel
+# Temporary scratch files
+extracted_images/
+docx_tables.txt
+pdf_page_38.png
+*.log
