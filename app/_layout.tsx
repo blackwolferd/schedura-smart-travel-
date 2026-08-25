@@ -1,56 +1,70 @@
-import { useFonts } from 'expo-font';
-import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
+import { Stack, useRouter, useSegments } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { useEffect, useState } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { AppProvider } from '@/context/AppContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { useColorScheme } from '@/components/useColorScheme';
-
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from 'expo-router';
-
-export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '(tabs)',
-};
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
+  const router = useRouter();
+  const segments = useSegments();
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
+  // Check auth state on mount
   useEffect(() => {
-    if (error) throw error;
-  }, [error]);
+    const checkAuth = async () => {
+      try {
+        const auth = await AsyncStorage.getItem('schedura_auth');
+        if (auth) {
+          const parsed = JSON.parse(auth);
+          setIsLoggedIn(parsed.loggedIn === true);
+        } else {
+          setIsLoggedIn(false);
+        }
+      } catch {
+        setIsLoggedIn(false);
+      } finally {
+        SplashScreen.hideAsync();
+      }
+    };
+    checkAuth();
+  }, []);
 
+  // Redirect based on auth state
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
+    if (isLoggedIn === null) return; // still loading
+
+    const inTabs = segments[0] === '(tabs)';
+    const inLogin = segments[0] === 'login';
+
+    if (!isLoggedIn && !inLogin) {
+      router.replace('/login');
+    } else if (isLoggedIn && inLogin) {
+      router.replace('/(tabs)');
     }
-  }, [loaded]);
+  }, [isLoggedIn, segments]);
 
-  if (!loaded) {
-    return null;
-  }
-
-  return <RootLayoutNav />;
-}
-
-function RootLayoutNav() {
-  const colorScheme = useColorScheme();
+  if (isLoggedIn === null) return null; // loading
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <AppProvider>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="login" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen
+            name="booking"
+            options={{
+              headerShown: false,
+              presentation: 'modal',
+              animation: 'slide_from_bottom',
+            }}
+          />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      </AppProvider>
+    </SafeAreaProvider>
   );
 }
