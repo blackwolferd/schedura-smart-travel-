@@ -84,6 +84,7 @@ function PaymentStep({
   const [paying, setPaying] = useState(false);
 
   const handlePay = () => {
+    if (paying) return;
     if (method === 'upi' && !upiId.trim()) {
       Alert.alert('UPI ID Required', 'Please enter your UPI ID to continue.');
       return;
