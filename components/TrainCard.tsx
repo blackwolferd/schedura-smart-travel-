@@ -32,7 +32,7 @@ function SeatBadge({ count, c }: { count: number; c: ReturnType<typeof useColors
   );
 }
 
-export function TrainCard({ train, onBook, index = 0 }: Props) {
+export const TrainCard = React.memo(function TrainCard({ train, onBook, index = 0 }: Props) {
   const c = useColors();
   const badgeColor = TYPE_BADGE_COLORS[train.type] ?? c.primary;
 
