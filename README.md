@@ -10,6 +10,18 @@ An intelligent, offline-first mobile application designed to simplify journey pl
 
 ---
 
+## 🐍 Live Contribution Snake (Accurate Real-Time Graph)
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/blackwolferd/schedura-smart-travel-/output/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/blackwolferd/schedura-smart-travel-/output/github-contribution-grid-snake.svg">
+    <img alt="Live Contribution Snake" src="https://raw.githubusercontent.com/blackwolferd/schedura-smart-travel-/output/github-contribution-grid-snake-dark.svg" width="100%">
+  </picture>
+</div>
+
+---
+
 ## 📸 Key Workflows & Features
 
 * **📅 30-Day Demand Calendar Heatmap:** Visual availability indicators (Green: Plentiful, Yellow: Moderate, Red: Peak Rush) helping travelers avoid congested transit dates.
@@ -85,9 +97,6 @@ This project was engineered as a collaborative academic capstone:
    * Press `a` for Android Emulator.
    * Press `w` for Web Preview.
    * Scan the terminal QR code with **Expo Go** on your physical Android or iPhone device.
-
----
-
 
 ---
 
