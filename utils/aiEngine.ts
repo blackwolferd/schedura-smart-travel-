@@ -31,6 +31,10 @@ const CITY_ALIASES: Record<string, string> = {
   'navi mumbai': 'Mumbai',
   pune: 'Pune',
   trivandrum: 'Thiruvananthapuram',
+  gurgaon: 'Delhi',
+  secunderabad: 'Hyderabad',
+  vizag: 'Visakhapatnam',
+  prayagraj: 'Varanasi',
 };
 
 const CITIES_WITHOUT_STATIONS: Record<string, { nearestStation: string; howToReach: string }> = {
