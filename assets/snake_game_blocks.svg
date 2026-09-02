@@ -13,29 +13,36 @@
     .legend-text { font-size: 10px; fill: #8b949e; }
     
     /* Snake motion along 90-degree block grid path */
+    /* HEAD IS IN FRONT (leading with -0.60s delay) */
     .snake-head {
       offset-path: path('M 68.5 74.5 L 82.5 74.5 L 96.5 74.5 L 110.5 74.5 L 124.5 74.5 L 138.5 74.5 L 152.5 74.5 L 166.5 74.5 L 180.5 74.5 L 194.5 74.5 L 208.5 74.5 L 222.5 74.5 L 236.5 74.5 L 236.5 88.5 L 236.5 102.5 L 236.5 116.5 L 236.5 130.5 L 250.5 130.5 L 264.5 130.5 L 278.5 130.5 L 292.5 130.5 L 306.5 130.5 L 320.5 130.5 L 334.5 130.5 L 348.5 130.5 L 362.5 130.5 L 376.5 130.5 L 390.5 130.5 L 390.5 116.5 L 390.5 102.5 L 390.5 88.5 L 390.5 74.5 L 390.5 60.5 L 404.5 60.5 L 418.5 60.5 L 432.5 60.5 L 446.5 60.5 L 460.5 60.5 L 474.5 60.5 L 488.5 60.5 L 502.5 60.5 L 516.5 60.5 L 530.5 60.5 L 544.5 60.5 L 558.5 60.5 L 558.5 74.5 L 558.5 88.5 L 558.5 102.5 L 558.5 116.5 L 572.5 116.5 L 586.5 116.5 L 600.5 116.5 L 614.5 116.5 L 628.5 116.5 L 642.5 116.5 L 656.5 116.5 L 670.5 116.5 L 684.5 116.5 L 698.5 116.5 L 712.5 116.5 L 726.5 116.5 L 726.5 102.5 L 726.5 88.5 L 726.5 74.5');
+      offset-rotate: auto;
       animation: snakeMove 14s linear infinite;
+      animation-delay: -0.60s; /* LEADS THE SNAKE */
     }
     .snake-body-1 {
       offset-path: path('M 68.5 74.5 L 82.5 74.5 L 96.5 74.5 L 110.5 74.5 L 124.5 74.5 L 138.5 74.5 L 152.5 74.5 L 166.5 74.5 L 180.5 74.5 L 194.5 74.5 L 208.5 74.5 L 222.5 74.5 L 236.5 74.5 L 236.5 88.5 L 236.5 102.5 L 236.5 116.5 L 236.5 130.5 L 250.5 130.5 L 264.5 130.5 L 278.5 130.5 L 292.5 130.5 L 306.5 130.5 L 320.5 130.5 L 334.5 130.5 L 348.5 130.5 L 362.5 130.5 L 376.5 130.5 L 390.5 130.5 L 390.5 116.5 L 390.5 102.5 L 390.5 88.5 L 390.5 74.5 L 390.5 60.5 L 404.5 60.5 L 418.5 60.5 L 432.5 60.5 L 446.5 60.5 L 460.5 60.5 L 474.5 60.5 L 488.5 60.5 L 502.5 60.5 L 516.5 60.5 L 530.5 60.5 L 544.5 60.5 L 558.5 60.5 L 558.5 74.5 L 558.5 88.5 L 558.5 102.5 L 558.5 116.5 L 572.5 116.5 L 586.5 116.5 L 600.5 116.5 L 614.5 116.5 L 628.5 116.5 L 642.5 116.5 L 656.5 116.5 L 670.5 116.5 L 684.5 116.5 L 698.5 116.5 L 712.5 116.5 L 726.5 116.5 L 726.5 102.5 L 726.5 88.5 L 726.5 74.5');
+      offset-rotate: auto;
       animation: snakeMove 14s linear infinite;
-      animation-delay: -0.12s;
+      animation-delay: -0.45s; /* BEHIND HEAD */
     }
     .snake-body-2 {
       offset-path: path('M 68.5 74.5 L 82.5 74.5 L 96.5 74.5 L 110.5 74.5 L 124.5 74.5 L 138.5 74.5 L 152.5 74.5 L 166.5 74.5 L 180.5 74.5 L 194.5 74.5 L 208.5 74.5 L 222.5 74.5 L 236.5 74.5 L 236.5 88.5 L 236.5 102.5 L 236.5 116.5 L 236.5 130.5 L 250.5 130.5 L 264.5 130.5 L 278.5 130.5 L 292.5 130.5 L 306.5 130.5 L 320.5 130.5 L 334.5 130.5 L 348.5 130.5 L 362.5 130.5 L 376.5 130.5 L 390.5 130.5 L 390.5 116.5 L 390.5 102.5 L 390.5 88.5 L 390.5 74.5 L 390.5 60.5 L 404.5 60.5 L 418.5 60.5 L 432.5 60.5 L 446.5 60.5 L 460.5 60.5 L 474.5 60.5 L 488.5 60.5 L 502.5 60.5 L 516.5 60.5 L 530.5 60.5 L 544.5 60.5 L 558.5 60.5 L 558.5 74.5 L 558.5 88.5 L 558.5 102.5 L 558.5 116.5 L 572.5 116.5 L 586.5 116.5 L 600.5 116.5 L 614.5 116.5 L 628.5 116.5 L 642.5 116.5 L 656.5 116.5 L 670.5 116.5 L 684.5 116.5 L 698.5 116.5 L 712.5 116.5 L 726.5 116.5 L 726.5 102.5 L 726.5 88.5 L 726.5 74.5');
+      offset-rotate: auto;
       animation: snakeMove 14s linear infinite;
-      animation-delay: -0.24s;
+      animation-delay: -0.30s; /* BEHIND BODY 1 */
     }
     .snake-body-3 {
       offset-path: path('M 68.5 74.5 L 82.5 74.5 L 96.5 74.5 L 110.5 74.5 L 124.5 74.5 L 138.5 74.5 L 152.5 74.5 L 166.5 74.5 L 180.5 74.5 L 194.5 74.5 L 208.5 74.5 L 222.5 74.5 L 236.5 74.5 L 236.5 88.5 L 236.5 102.5 L 236.5 116.5 L 236.5 130.5 L 250.5 130.5 L 264.5 130.5 L 278.5 130.5 L 292.5 130.5 L 306.5 130.5 L 320.5 130.5 L 334.5 130.5 L 348.5 130.5 L 362.5 130.5 L 376.5 130.5 L 390.5 130.5 L 390.5 116.5 L 390.5 102.5 L 390.5 88.5 L 390.5 74.5 L 390.5 60.5 L 404.5 60.5 L 418.5 60.5 L 432.5 60.5 L 446.5 60.5 L 460.5 60.5 L 474.5 60.5 L 488.5 60.5 L 502.5 60.5 L 516.5 60.5 L 530.5 60.5 L 544.5 60.5 L 558.5 60.5 L 558.5 74.5 L 558.5 88.5 L 558.5 102.5 L 558.5 116.5 L 572.5 116.5 L 586.5 116.5 L 600.5 116.5 L 614.5 116.5 L 628.5 116.5 L 642.5 116.5 L 656.5 116.5 L 670.5 116.5 L 684.5 116.5 L 698.5 116.5 L 712.5 116.5 L 726.5 116.5 L 726.5 102.5 L 726.5 88.5 L 726.5 74.5');
+      offset-rotate: auto;
       animation: snakeMove 14s linear infinite;
-      animation-delay: -0.36s;
+      animation-delay: -0.15s; /* BEHIND BODY 2 */
     }
     .snake-tail {
       offset-path: path('M 68.5 74.5 L 82.5 74.5 L 96.5 74.5 L 110.5 74.5 L 124.5 74.5 L 138.5 74.5 L 152.5 74.5 L 166.5 74.5 L 180.5 74.5 L 194.5 74.5 L 208.5 74.5 L 222.5 74.5 L 236.5 74.5 L 236.5 88.5 L 236.5 102.5 L 236.5 116.5 L 236.5 130.5 L 250.5 130.5 L 264.5 130.5 L 278.5 130.5 L 292.5 130.5 L 306.5 130.5 L 320.5 130.5 L 334.5 130.5 L 348.5 130.5 L 362.5 130.5 L 376.5 130.5 L 390.5 130.5 L 390.5 116.5 L 390.5 102.5 L 390.5 88.5 L 390.5 74.5 L 390.5 60.5 L 404.5 60.5 L 418.5 60.5 L 432.5 60.5 L 446.5 60.5 L 460.5 60.5 L 474.5 60.5 L 488.5 60.5 L 502.5 60.5 L 516.5 60.5 L 530.5 60.5 L 544.5 60.5 L 558.5 60.5 L 558.5 74.5 L 558.5 88.5 L 558.5 102.5 L 558.5 116.5 L 572.5 116.5 L 586.5 116.5 L 600.5 116.5 L 614.5 116.5 L 628.5 116.5 L 642.5 116.5 L 656.5 116.5 L 670.5 116.5 L 684.5 116.5 L 698.5 116.5 L 712.5 116.5 L 726.5 116.5 L 726.5 102.5 L 726.5 88.5 L 726.5 74.5');
+      offset-rotate: auto;
       animation: snakeMove 14s linear infinite;
-      animation-delay: -0.48s;
+      animation-delay: 0s;     /* TRAILING AT THE BACK */
     }
 
     @keyframes snakeMove {
@@ -46,450 +53,450 @@
     /* Eat animations for green blocks */
     
                   @keyframes eat_0 {
-                    0%, 0.0% { fill: #39d353; transform: scale(1); }
-                    0.0% { fill: #56d364; transform: scale(1.3); transform-origin: 68.5px 74.5px; }
-                    2.0%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 94.7% { fill: #39d353; transform: scale(1); }
+                    95.7% { fill: #7ee787; transform: scale(1.35); transform-origin: 68.5px 74.5px; }
+                    97.7%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-0 { animation: eat_0 14s infinite; }
                 
                   @keyframes eat_1 {
-                    0%, 0.6% { fill: #006d32; transform: scale(1); }
-                    1.6% { fill: #56d364; transform: scale(1.3); transform-origin: 82.5px 74.5px; }
-                    3.6%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 96.3% { fill: #006d32; transform: scale(1); }
+                    97.3% { fill: #7ee787; transform: scale(1.35); transform-origin: 82.5px 74.5px; }
+                    99.3%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-1 { animation: eat_1 14s infinite; }
                 
                   @keyframes eat_2 {
-                    0%, 2.1% { fill: #39d353; transform: scale(1); }
-                    3.1% { fill: #56d364; transform: scale(1.3); transform-origin: 96.5px 74.5px; }
-                    5.1%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 97.8% { fill: #39d353; transform: scale(1); }
+                    98.8% { fill: #7ee787; transform: scale(1.35); transform-origin: 96.5px 74.5px; }
+                    100.0%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-2 { animation: eat_2 14s infinite; }
                 
                   @keyframes eat_3 {
-                    0%, 3.7% { fill: #39d353; transform: scale(1); }
-                    4.7% { fill: #56d364; transform: scale(1.3); transform-origin: 110.5px 74.5px; }
-                    6.7%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 0.0% { fill: #39d353; transform: scale(1); }
+                    0.4% { fill: #7ee787; transform: scale(1.35); transform-origin: 110.5px 74.5px; }
+                    2.4%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-3 { animation: eat_3 14s infinite; }
                 
                   @keyframes eat_4 {
-                    0%, 5.2% { fill: #006d32; transform: scale(1); }
-                    6.2% { fill: #56d364; transform: scale(1.3); transform-origin: 124.5px 74.5px; }
-                    8.2%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 1.0% { fill: #006d32; transform: scale(1); }
+                    2.0% { fill: #7ee787; transform: scale(1.35); transform-origin: 124.5px 74.5px; }
+                    4.0%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-4 { animation: eat_4 14s infinite; }
                 
                   @keyframes eat_5 {
-                    0%, 6.8% { fill: #26a641; transform: scale(1); }
-                    7.8% { fill: #56d364; transform: scale(1.3); transform-origin: 138.5px 74.5px; }
-                    9.8%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 2.5% { fill: #26a641; transform: scale(1); }
+                    3.5% { fill: #7ee787; transform: scale(1.35); transform-origin: 138.5px 74.5px; }
+                    5.5%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-5 { animation: eat_5 14s infinite; }
                 
                   @keyframes eat_6 {
-                    0%, 8.4% { fill: #39d353; transform: scale(1); }
-                    9.4% { fill: #56d364; transform: scale(1.3); transform-origin: 152.5px 74.5px; }
-                    11.4%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 4.1% { fill: #39d353; transform: scale(1); }
+                    5.1% { fill: #7ee787; transform: scale(1.35); transform-origin: 152.5px 74.5px; }
+                    7.1%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-6 { animation: eat_6 14s infinite; }
                 
                   @keyframes eat_7 {
-                    0%, 9.9% { fill: #006d32; transform: scale(1); }
-                    10.9% { fill: #56d364; transform: scale(1.3); transform-origin: 166.5px 74.5px; }
-                    12.9%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 5.7% { fill: #006d32; transform: scale(1); }
+                    6.7% { fill: #7ee787; transform: scale(1.35); transform-origin: 166.5px 74.5px; }
+                    8.7%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-7 { animation: eat_7 14s infinite; }
                 
                   @keyframes eat_8 {
-                    0%, 11.5% { fill: #39d353; transform: scale(1); }
-                    12.5% { fill: #56d364; transform: scale(1.3); transform-origin: 180.5px 74.5px; }
-                    14.5%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 7.2% { fill: #39d353; transform: scale(1); }
+                    8.2% { fill: #7ee787; transform: scale(1.35); transform-origin: 180.5px 74.5px; }
+                    10.2%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-8 { animation: eat_8 14s infinite; }
                 
                   @keyframes eat_9 {
-                    0%, 13.1% { fill: #26a641; transform: scale(1); }
-                    14.1% { fill: #56d364; transform: scale(1.3); transform-origin: 194.5px 74.5px; }
-                    16.1%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 8.8% { fill: #26a641; transform: scale(1); }
+                    9.8% { fill: #7ee787; transform: scale(1.35); transform-origin: 194.5px 74.5px; }
+                    11.8%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-9 { animation: eat_9 14s infinite; }
                 
                   @keyframes eat_10 {
-                    0%, 14.6% { fill: #26a641; transform: scale(1); }
-                    15.6% { fill: #56d364; transform: scale(1.3); transform-origin: 208.5px 74.5px; }
-                    17.6%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 10.3% { fill: #26a641; transform: scale(1); }
+                    11.3% { fill: #7ee787; transform: scale(1.35); transform-origin: 208.5px 74.5px; }
+                    13.3%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-10 { animation: eat_10 14s infinite; }
                 
                   @keyframes eat_11 {
-                    0%, 16.2% { fill: #39d353; transform: scale(1); }
-                    17.2% { fill: #56d364; transform: scale(1.3); transform-origin: 222.5px 74.5px; }
-                    19.2%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 11.9% { fill: #39d353; transform: scale(1); }
+                    12.9% { fill: #7ee787; transform: scale(1.35); transform-origin: 222.5px 74.5px; }
+                    14.9%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-11 { animation: eat_11 14s infinite; }
                 
                   @keyframes eat_12 {
-                    0%, 17.8% { fill: #26a641; transform: scale(1); }
-                    18.8% { fill: #56d364; transform: scale(1.3); transform-origin: 236.5px 74.5px; }
-                    20.8%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 13.5% { fill: #26a641; transform: scale(1); }
+                    14.5% { fill: #7ee787; transform: scale(1.35); transform-origin: 236.5px 74.5px; }
+                    16.5%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-12 { animation: eat_12 14s infinite; }
                 
                   @keyframes eat_13 {
-                    0%, 19.3% { fill: #39d353; transform: scale(1); }
-                    20.3% { fill: #56d364; transform: scale(1.3); transform-origin: 236.5px 88.5px; }
-                    22.3%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 15.0% { fill: #39d353; transform: scale(1); }
+                    16.0% { fill: #7ee787; transform: scale(1.35); transform-origin: 236.5px 88.5px; }
+                    18.0%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-13 { animation: eat_13 14s infinite; }
                 
                   @keyframes eat_14 {
-                    0%, 20.9% { fill: #26a641; transform: scale(1); }
-                    21.9% { fill: #56d364; transform: scale(1.3); transform-origin: 236.5px 102.5px; }
-                    23.9%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 16.6% { fill: #26a641; transform: scale(1); }
+                    17.6% { fill: #7ee787; transform: scale(1.35); transform-origin: 236.5px 102.5px; }
+                    19.6%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-14 { animation: eat_14 14s infinite; }
                 
                   @keyframes eat_15 {
-                    0%, 22.4% { fill: #26a641; transform: scale(1); }
-                    23.4% { fill: #56d364; transform: scale(1.3); transform-origin: 236.5px 116.5px; }
-                    25.4%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 18.2% { fill: #26a641; transform: scale(1); }
+                    19.2% { fill: #7ee787; transform: scale(1.35); transform-origin: 236.5px 116.5px; }
+                    21.2%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-15 { animation: eat_15 14s infinite; }
                 
                   @keyframes eat_16 {
-                    0%, 24.0% { fill: #006d32; transform: scale(1); }
-                    25.0% { fill: #56d364; transform: scale(1.3); transform-origin: 236.5px 130.5px; }
-                    27.0%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 19.7% { fill: #006d32; transform: scale(1); }
+                    20.7% { fill: #7ee787; transform: scale(1.35); transform-origin: 236.5px 130.5px; }
+                    22.7%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-16 { animation: eat_16 14s infinite; }
                 
                   @keyframes eat_17 {
-                    0%, 25.6% { fill: #39d353; transform: scale(1); }
-                    26.6% { fill: #56d364; transform: scale(1.3); transform-origin: 250.5px 130.5px; }
-                    28.6%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 21.3% { fill: #39d353; transform: scale(1); }
+                    22.3% { fill: #7ee787; transform: scale(1.35); transform-origin: 250.5px 130.5px; }
+                    24.3%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-17 { animation: eat_17 14s infinite; }
                 
                   @keyframes eat_18 {
-                    0%, 27.1% { fill: #39d353; transform: scale(1); }
-                    28.1% { fill: #56d364; transform: scale(1.3); transform-origin: 264.5px 130.5px; }
-                    30.1%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 22.8% { fill: #39d353; transform: scale(1); }
+                    23.8% { fill: #7ee787; transform: scale(1.35); transform-origin: 264.5px 130.5px; }
+                    25.8%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-18 { animation: eat_18 14s infinite; }
                 
                   @keyframes eat_19 {
-                    0%, 28.7% { fill: #26a641; transform: scale(1); }
-                    29.7% { fill: #56d364; transform: scale(1.3); transform-origin: 278.5px 130.5px; }
-                    31.7%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 24.4% { fill: #26a641; transform: scale(1); }
+                    25.4% { fill: #7ee787; transform: scale(1.35); transform-origin: 278.5px 130.5px; }
+                    27.4%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-19 { animation: eat_19 14s infinite; }
                 
                   @keyframes eat_20 {
-                    0%, 30.2% { fill: #006d32; transform: scale(1); }
-                    31.2% { fill: #56d364; transform: scale(1.3); transform-origin: 292.5px 130.5px; }
-                    33.2%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 26.0% { fill: #006d32; transform: scale(1); }
+                    27.0% { fill: #7ee787; transform: scale(1.35); transform-origin: 292.5px 130.5px; }
+                    29.0%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-20 { animation: eat_20 14s infinite; }
                 
                   @keyframes eat_21 {
-                    0%, 31.8% { fill: #39d353; transform: scale(1); }
-                    32.8% { fill: #56d364; transform: scale(1.3); transform-origin: 306.5px 130.5px; }
-                    34.8%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 27.5% { fill: #39d353; transform: scale(1); }
+                    28.5% { fill: #7ee787; transform: scale(1.35); transform-origin: 306.5px 130.5px; }
+                    30.5%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-21 { animation: eat_21 14s infinite; }
                 
                   @keyframes eat_22 {
-                    0%, 33.4% { fill: #39d353; transform: scale(1); }
-                    34.4% { fill: #56d364; transform: scale(1.3); transform-origin: 320.5px 130.5px; }
-                    36.4%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 29.1% { fill: #39d353; transform: scale(1); }
+                    30.1% { fill: #7ee787; transform: scale(1.35); transform-origin: 320.5px 130.5px; }
+                    32.1%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-22 { animation: eat_22 14s infinite; }
                 
                   @keyframes eat_23 {
-                    0%, 34.9% { fill: #39d353; transform: scale(1); }
-                    35.9% { fill: #56d364; transform: scale(1.3); transform-origin: 334.5px 130.5px; }
-                    37.9%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 30.7% { fill: #39d353; transform: scale(1); }
+                    31.7% { fill: #7ee787; transform: scale(1.35); transform-origin: 334.5px 130.5px; }
+                    33.7%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-23 { animation: eat_23 14s infinite; }
                 
                   @keyframes eat_24 {
-                    0%, 36.5% { fill: #39d353; transform: scale(1); }
-                    37.5% { fill: #56d364; transform: scale(1.3); transform-origin: 348.5px 130.5px; }
-                    39.5%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 32.2% { fill: #39d353; transform: scale(1); }
+                    33.2% { fill: #7ee787; transform: scale(1.35); transform-origin: 348.5px 130.5px; }
+                    35.2%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-24 { animation: eat_24 14s infinite; }
                 
                   @keyframes eat_25 {
-                    0%, 38.1% { fill: #006d32; transform: scale(1); }
-                    39.1% { fill: #56d364; transform: scale(1.3); transform-origin: 362.5px 130.5px; }
-                    41.1%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 33.8% { fill: #006d32; transform: scale(1); }
+                    34.8% { fill: #7ee787; transform: scale(1.35); transform-origin: 362.5px 130.5px; }
+                    36.8%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-25 { animation: eat_25 14s infinite; }
                 
                   @keyframes eat_26 {
-                    0%, 39.6% { fill: #26a641; transform: scale(1); }
-                    40.6% { fill: #56d364; transform: scale(1.3); transform-origin: 376.5px 130.5px; }
-                    42.6%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 35.3% { fill: #26a641; transform: scale(1); }
+                    36.3% { fill: #7ee787; transform: scale(1.35); transform-origin: 376.5px 130.5px; }
+                    38.3%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-26 { animation: eat_26 14s infinite; }
                 
                   @keyframes eat_32 {
-                    0%, 49.0% { fill: #006d32; transform: scale(1); }
-                    50.0% { fill: #56d364; transform: scale(1.3); transform-origin: 390.5px 60.5px; }
-                    52.0%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 44.7% { fill: #006d32; transform: scale(1); }
+                    45.7% { fill: #7ee787; transform: scale(1.35); transform-origin: 390.5px 60.5px; }
+                    47.7%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-32 { animation: eat_32 14s infinite; }
                 
                   @keyframes eat_31 {
-                    0%, 47.4% { fill: #006d32; transform: scale(1); }
-                    48.4% { fill: #56d364; transform: scale(1.3); transform-origin: 390.5px 74.5px; }
-                    50.4%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 43.2% { fill: #006d32; transform: scale(1); }
+                    44.2% { fill: #7ee787; transform: scale(1.35); transform-origin: 390.5px 74.5px; }
+                    46.2%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-31 { animation: eat_31 14s infinite; }
                 
                   @keyframes eat_30 {
-                    0%, 45.9% { fill: #006d32; transform: scale(1); }
-                    46.9% { fill: #56d364; transform: scale(1.3); transform-origin: 390.5px 88.5px; }
-                    48.9%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 41.6% { fill: #006d32; transform: scale(1); }
+                    42.6% { fill: #7ee787; transform: scale(1.35); transform-origin: 390.5px 88.5px; }
+                    44.6%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-30 { animation: eat_30 14s infinite; }
                 
                   @keyframes eat_29 {
-                    0%, 44.3% { fill: #39d353; transform: scale(1); }
-                    45.3% { fill: #56d364; transform: scale(1.3); transform-origin: 390.5px 102.5px; }
-                    47.3%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 40.0% { fill: #39d353; transform: scale(1); }
+                    41.0% { fill: #7ee787; transform: scale(1.35); transform-origin: 390.5px 102.5px; }
+                    43.0%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-29 { animation: eat_29 14s infinite; }
                 
                   @keyframes eat_28 {
-                    0%, 42.8% { fill: #39d353; transform: scale(1); }
-                    43.8% { fill: #56d364; transform: scale(1.3); transform-origin: 390.5px 116.5px; }
-                    45.8%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 38.5% { fill: #39d353; transform: scale(1); }
+                    39.5% { fill: #7ee787; transform: scale(1.35); transform-origin: 390.5px 116.5px; }
+                    41.5%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-28 { animation: eat_28 14s infinite; }
                 
                   @keyframes eat_27 {
-                    0%, 41.2% { fill: #006d32; transform: scale(1); }
-                    42.2% { fill: #56d364; transform: scale(1.3); transform-origin: 390.5px 130.5px; }
-                    44.2%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 36.9% { fill: #006d32; transform: scale(1); }
+                    37.9% { fill: #7ee787; transform: scale(1.35); transform-origin: 390.5px 130.5px; }
+                    39.9%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-27 { animation: eat_27 14s infinite; }
                 
                   @keyframes eat_33 {
-                    0%, 50.6% { fill: #006d32; transform: scale(1); }
-                    51.6% { fill: #56d364; transform: scale(1.3); transform-origin: 404.5px 60.5px; }
-                    53.6%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 46.3% { fill: #006d32; transform: scale(1); }
+                    47.3% { fill: #7ee787; transform: scale(1.35); transform-origin: 404.5px 60.5px; }
+                    49.3%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-33 { animation: eat_33 14s infinite; }
                 
                   @keyframes eat_34 {
-                    0%, 52.1% { fill: #26a641; transform: scale(1); }
-                    53.1% { fill: #56d364; transform: scale(1.3); transform-origin: 418.5px 60.5px; }
-                    55.1%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 47.8% { fill: #26a641; transform: scale(1); }
+                    48.8% { fill: #7ee787; transform: scale(1.35); transform-origin: 418.5px 60.5px; }
+                    50.8%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-34 { animation: eat_34 14s infinite; }
                 
                   @keyframes eat_35 {
-                    0%, 53.7% { fill: #26a641; transform: scale(1); }
-                    54.7% { fill: #56d364; transform: scale(1.3); transform-origin: 432.5px 60.5px; }
-                    56.7%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 49.4% { fill: #26a641; transform: scale(1); }
+                    50.4% { fill: #7ee787; transform: scale(1.35); transform-origin: 432.5px 60.5px; }
+                    52.4%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-35 { animation: eat_35 14s infinite; }
                 
                   @keyframes eat_36 {
-                    0%, 55.2% { fill: #39d353; transform: scale(1); }
-                    56.2% { fill: #56d364; transform: scale(1.3); transform-origin: 446.5px 60.5px; }
-                    58.2%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 51.0% { fill: #39d353; transform: scale(1); }
+                    52.0% { fill: #7ee787; transform: scale(1.35); transform-origin: 446.5px 60.5px; }
+                    54.0%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-36 { animation: eat_36 14s infinite; }
                 
                   @keyframes eat_37 {
-                    0%, 56.8% { fill: #39d353; transform: scale(1); }
-                    57.8% { fill: #56d364; transform: scale(1.3); transform-origin: 460.5px 60.5px; }
-                    59.8%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 52.5% { fill: #39d353; transform: scale(1); }
+                    53.5% { fill: #7ee787; transform: scale(1.35); transform-origin: 460.5px 60.5px; }
+                    55.5%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-37 { animation: eat_37 14s infinite; }
                 
                   @keyframes eat_38 {
-                    0%, 58.4% { fill: #006d32; transform: scale(1); }
-                    59.4% { fill: #56d364; transform: scale(1.3); transform-origin: 474.5px 60.5px; }
-                    61.4%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 54.1% { fill: #006d32; transform: scale(1); }
+                    55.1% { fill: #7ee787; transform: scale(1.35); transform-origin: 474.5px 60.5px; }
+                    57.1%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-38 { animation: eat_38 14s infinite; }
                 
                   @keyframes eat_39 {
-                    0%, 59.9% { fill: #006d32; transform: scale(1); }
-                    60.9% { fill: #56d364; transform: scale(1.3); transform-origin: 488.5px 60.5px; }
-                    62.9%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 55.7% { fill: #006d32; transform: scale(1); }
+                    56.7% { fill: #7ee787; transform: scale(1.35); transform-origin: 488.5px 60.5px; }
+                    58.7%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-39 { animation: eat_39 14s infinite; }
                 
                   @keyframes eat_40 {
-                    0%, 61.5% { fill: #006d32; transform: scale(1); }
-                    62.5% { fill: #56d364; transform: scale(1.3); transform-origin: 502.5px 60.5px; }
-                    64.5%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 57.2% { fill: #006d32; transform: scale(1); }
+                    58.2% { fill: #7ee787; transform: scale(1.35); transform-origin: 502.5px 60.5px; }
+                    60.2%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-40 { animation: eat_40 14s infinite; }
                 
                   @keyframes eat_41 {
-                    0%, 63.1% { fill: #26a641; transform: scale(1); }
-                    64.1% { fill: #56d364; transform: scale(1.3); transform-origin: 516.5px 60.5px; }
-                    66.1%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 58.8% { fill: #26a641; transform: scale(1); }
+                    59.8% { fill: #7ee787; transform: scale(1.35); transform-origin: 516.5px 60.5px; }
+                    61.8%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-41 { animation: eat_41 14s infinite; }
                 
                   @keyframes eat_42 {
-                    0%, 64.6% { fill: #39d353; transform: scale(1); }
-                    65.6% { fill: #56d364; transform: scale(1.3); transform-origin: 530.5px 60.5px; }
-                    67.6%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 60.3% { fill: #39d353; transform: scale(1); }
+                    61.3% { fill: #7ee787; transform: scale(1.35); transform-origin: 530.5px 60.5px; }
+                    63.3%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-42 { animation: eat_42 14s infinite; }
                 
                   @keyframes eat_43 {
-                    0%, 66.2% { fill: #39d353; transform: scale(1); }
-                    67.2% { fill: #56d364; transform: scale(1.3); transform-origin: 544.5px 60.5px; }
-                    69.2%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 61.9% { fill: #39d353; transform: scale(1); }
+                    62.9% { fill: #7ee787; transform: scale(1.35); transform-origin: 544.5px 60.5px; }
+                    64.9%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-43 { animation: eat_43 14s infinite; }
                 
                   @keyframes eat_44 {
-                    0%, 67.8% { fill: #006d32; transform: scale(1); }
-                    68.8% { fill: #56d364; transform: scale(1.3); transform-origin: 558.5px 60.5px; }
-                    70.8%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 63.5% { fill: #006d32; transform: scale(1); }
+                    64.5% { fill: #7ee787; transform: scale(1.35); transform-origin: 558.5px 60.5px; }
+                    66.5%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-44 { animation: eat_44 14s infinite; }
                 
                   @keyframes eat_45 {
-                    0%, 69.3% { fill: #39d353; transform: scale(1); }
-                    70.3% { fill: #56d364; transform: scale(1.3); transform-origin: 558.5px 74.5px; }
-                    72.3%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 65.0% { fill: #39d353; transform: scale(1); }
+                    66.0% { fill: #7ee787; transform: scale(1.35); transform-origin: 558.5px 74.5px; }
+                    68.0%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-45 { animation: eat_45 14s infinite; }
                 
                   @keyframes eat_46 {
-                    0%, 70.9% { fill: #39d353; transform: scale(1); }
-                    71.9% { fill: #56d364; transform: scale(1.3); transform-origin: 558.5px 88.5px; }
-                    73.9%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 66.6% { fill: #39d353; transform: scale(1); }
+                    67.6% { fill: #7ee787; transform: scale(1.35); transform-origin: 558.5px 88.5px; }
+                    69.6%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-46 { animation: eat_46 14s infinite; }
                 
                   @keyframes eat_47 {
-                    0%, 72.4% { fill: #26a641; transform: scale(1); }
-                    73.4% { fill: #56d364; transform: scale(1.3); transform-origin: 558.5px 102.5px; }
-                    75.4%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 68.2% { fill: #26a641; transform: scale(1); }
+                    69.2% { fill: #7ee787; transform: scale(1.35); transform-origin: 558.5px 102.5px; }
+                    71.2%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-47 { animation: eat_47 14s infinite; }
                 
                   @keyframes eat_48 {
-                    0%, 74.0% { fill: #39d353; transform: scale(1); }
-                    75.0% { fill: #56d364; transform: scale(1.3); transform-origin: 558.5px 116.5px; }
-                    77.0%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 69.7% { fill: #39d353; transform: scale(1); }
+                    70.7% { fill: #7ee787; transform: scale(1.35); transform-origin: 558.5px 116.5px; }
+                    72.7%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-48 { animation: eat_48 14s infinite; }
                 
                   @keyframes eat_49 {
-                    0%, 75.6% { fill: #39d353; transform: scale(1); }
-                    76.6% { fill: #56d364; transform: scale(1.3); transform-origin: 572.5px 116.5px; }
-                    78.6%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 71.3% { fill: #39d353; transform: scale(1); }
+                    72.3% { fill: #7ee787; transform: scale(1.35); transform-origin: 572.5px 116.5px; }
+                    74.3%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-49 { animation: eat_49 14s infinite; }
                 
                   @keyframes eat_50 {
-                    0%, 77.1% { fill: #26a641; transform: scale(1); }
-                    78.1% { fill: #56d364; transform: scale(1.3); transform-origin: 586.5px 116.5px; }
-                    80.1%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 72.8% { fill: #26a641; transform: scale(1); }
+                    73.8% { fill: #7ee787; transform: scale(1.35); transform-origin: 586.5px 116.5px; }
+                    75.8%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-50 { animation: eat_50 14s infinite; }
                 
                   @keyframes eat_51 {
-                    0%, 78.7% { fill: #39d353; transform: scale(1); }
-                    79.7% { fill: #56d364; transform: scale(1.3); transform-origin: 600.5px 116.5px; }
-                    81.7%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 74.4% { fill: #39d353; transform: scale(1); }
+                    75.4% { fill: #7ee787; transform: scale(1.35); transform-origin: 600.5px 116.5px; }
+                    77.4%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-51 { animation: eat_51 14s infinite; }
                 
                   @keyframes eat_52 {
-                    0%, 80.2% { fill: #006d32; transform: scale(1); }
-                    81.2% { fill: #56d364; transform: scale(1.3); transform-origin: 614.5px 116.5px; }
-                    83.2%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 76.0% { fill: #006d32; transform: scale(1); }
+                    77.0% { fill: #7ee787; transform: scale(1.35); transform-origin: 614.5px 116.5px; }
+                    79.0%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-52 { animation: eat_52 14s infinite; }
                 
                   @keyframes eat_53 {
-                    0%, 81.8% { fill: #39d353; transform: scale(1); }
-                    82.8% { fill: #56d364; transform: scale(1.3); transform-origin: 628.5px 116.5px; }
-                    84.8%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 77.5% { fill: #39d353; transform: scale(1); }
+                    78.5% { fill: #7ee787; transform: scale(1.35); transform-origin: 628.5px 116.5px; }
+                    80.5%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-53 { animation: eat_53 14s infinite; }
                 
                   @keyframes eat_54 {
-                    0%, 83.4% { fill: #26a641; transform: scale(1); }
-                    84.4% { fill: #56d364; transform: scale(1.3); transform-origin: 642.5px 116.5px; }
-                    86.4%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 79.1% { fill: #26a641; transform: scale(1); }
+                    80.1% { fill: #7ee787; transform: scale(1.35); transform-origin: 642.5px 116.5px; }
+                    82.1%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-54 { animation: eat_54 14s infinite; }
                 
                   @keyframes eat_55 {
-                    0%, 84.9% { fill: #39d353; transform: scale(1); }
-                    85.9% { fill: #56d364; transform: scale(1.3); transform-origin: 656.5px 116.5px; }
-                    87.9%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 80.7% { fill: #39d353; transform: scale(1); }
+                    81.7% { fill: #7ee787; transform: scale(1.35); transform-origin: 656.5px 116.5px; }
+                    83.7%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-55 { animation: eat_55 14s infinite; }
                 
                   @keyframes eat_56 {
-                    0%, 86.5% { fill: #39d353; transform: scale(1); }
-                    87.5% { fill: #56d364; transform: scale(1.3); transform-origin: 670.5px 116.5px; }
-                    89.5%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 82.2% { fill: #39d353; transform: scale(1); }
+                    83.2% { fill: #7ee787; transform: scale(1.35); transform-origin: 670.5px 116.5px; }
+                    85.2%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-56 { animation: eat_56 14s infinite; }
                 
                   @keyframes eat_57 {
-                    0%, 88.1% { fill: #39d353; transform: scale(1); }
-                    89.1% { fill: #56d364; transform: scale(1.3); transform-origin: 684.5px 116.5px; }
-                    91.1%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 83.8% { fill: #39d353; transform: scale(1); }
+                    84.8% { fill: #7ee787; transform: scale(1.35); transform-origin: 684.5px 116.5px; }
+                    86.8%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-57 { animation: eat_57 14s infinite; }
                 
                   @keyframes eat_58 {
-                    0%, 89.6% { fill: #006d32; transform: scale(1); }
-                    90.6% { fill: #56d364; transform: scale(1.3); transform-origin: 698.5px 116.5px; }
-                    92.6%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 85.3% { fill: #006d32; transform: scale(1); }
+                    86.3% { fill: #7ee787; transform: scale(1.35); transform-origin: 698.5px 116.5px; }
+                    88.3%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-58 { animation: eat_58 14s infinite; }
                 
                   @keyframes eat_59 {
-                    0%, 91.2% { fill: #39d353; transform: scale(1); }
-                    92.2% { fill: #56d364; transform: scale(1.3); transform-origin: 712.5px 116.5px; }
-                    94.2%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 86.9% { fill: #39d353; transform: scale(1); }
+                    87.9% { fill: #7ee787; transform: scale(1.35); transform-origin: 712.5px 116.5px; }
+                    89.9%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-59 { animation: eat_59 14s infinite; }
                 
                   @keyframes eat_63 {
-                    0%, 97.4% { fill: #26a641; transform: scale(1); }
-                    98.4% { fill: #56d364; transform: scale(1.3); transform-origin: 726.5px 74.5px; }
-                    100.0%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 93.2% { fill: #26a641; transform: scale(1); }
+                    94.2% { fill: #7ee787; transform: scale(1.35); transform-origin: 726.5px 74.5px; }
+                    96.2%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-63 { animation: eat_63 14s infinite; }
                 
                   @keyframes eat_62 {
-                    0%, 95.9% { fill: #26a641; transform: scale(1); }
-                    96.9% { fill: #56d364; transform: scale(1.3); transform-origin: 726.5px 88.5px; }
-                    98.9%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 91.6% { fill: #26a641; transform: scale(1); }
+                    92.6% { fill: #7ee787; transform: scale(1.35); transform-origin: 726.5px 88.5px; }
+                    94.6%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-62 { animation: eat_62 14s infinite; }
                 
                   @keyframes eat_61 {
-                    0%, 94.3% { fill: #006d32; transform: scale(1); }
-                    95.3% { fill: #56d364; transform: scale(1.3); transform-origin: 726.5px 102.5px; }
-                    97.3%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 90.0% { fill: #006d32; transform: scale(1); }
+                    91.0% { fill: #7ee787; transform: scale(1.35); transform-origin: 726.5px 102.5px; }
+                    93.0%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-61 { animation: eat_61 14s infinite; }
                 
                   @keyframes eat_60 {
-                    0%, 92.8% { fill: #006d32; transform: scale(1); }
-                    93.8% { fill: #56d364; transform: scale(1.3); transform-origin: 726.5px 116.5px; }
-                    95.8%, 100% { fill: #161b22; transform: scale(1); }
+                    0%, 88.5% { fill: #006d32; transform: scale(1); }
+                    89.5% { fill: #7ee787; transform: scale(1.35); transform-origin: 726.5px 116.5px; }
+                    91.5%, 100% { fill: #161b22; transform: scale(1); }
                   }
                   .cell-p-60 { animation: eat_60 14s infinite; }
                 
@@ -518,9 +525,9 @@
     <rect x="35" y="55" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="35" y="69" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="35" y="83" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="35" y="97" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="35" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="35" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="35" y="139" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="49" y="55" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="49" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="49" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="49" y="97" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="49" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="49" y="125" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="49" y="139" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect x="63" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_2_1" x="63" y="69" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-0" /><rect x="63" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="63" y="97" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="63" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="63" y="125" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect x="63" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="77" y="55" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect id="cell_3_1" x="77" y="69" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-1" /><rect x="77" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="77" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="77" y="111" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="77" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="77" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="91" y="55" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect id="cell_4_1" x="91" y="69" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-2" /><rect x="91" y="83" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect x="91" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="91" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="91" y="125" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="91" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="105" y="55" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect id="cell_5_1" x="105" y="69" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-3" /><rect x="105" y="83" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="105" y="97" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="105" y="111" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="105" y="125" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="105" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="119" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_6_1" x="119" y="69" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-4" /><rect x="119" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="119" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="119" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="119" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="119" y="139" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="133" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_7_1" x="133" y="69" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-5" /><rect x="133" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="133" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="133" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="133" y="125" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="133" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="147" y="55" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect id="cell_8_1" x="147" y="69" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-6" /><rect x="147" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="147" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="147" y="111" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="147" y="125" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="147" y="139" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="161" y="55" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect id="cell_9_1" x="161" y="69" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-7" /><rect x="161" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="161" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="161" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="161" y="125" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="161" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="175" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_10_1" x="175" y="69" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-8" /><rect x="175" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="175" y="97" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="175" y="111" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="175" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="175" y="139" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="189" y="55" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect id="cell_11_1" x="189" y="69" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-9" /><rect x="189" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="189" y="97" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="189" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="189" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="189" y="139" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="203" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_12_1" x="203" y="69" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-10" /><rect x="203" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="203" y="97" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect x="203" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="203" y="125" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="203" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="217" y="55" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect id="cell_13_1" x="217" y="69" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-11" /><rect x="217" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="217" y="97" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="217" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="217" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="217" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="231" y="55" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect id="cell_14_1" x="231" y="69" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-12" /><rect id="cell_14_2" x="231" y="83" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-13" /><rect id="cell_14_3" x="231" y="97" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-14" /><rect id="cell_14_4" x="231" y="111" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-15" /><rect id="cell_14_5" x="231" y="125" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-16" /><rect x="231" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="245" y="55" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="245" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="245" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="245" y="97" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="245" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_15_5" x="245" y="125" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-17" /><rect x="245" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="259" y="55" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="259" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="259" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="259" y="97" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="259" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_16_5" x="259" y="125" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-18" /><rect x="259" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="273" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="273" y="69" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="273" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="273" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="273" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_17_5" x="273" y="125" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-19" /><rect x="273" y="139" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="287" y="55" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="287" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="287" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="287" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="287" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_18_5" x="287" y="125" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-20" /><rect x="287" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="301" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="301" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="301" y="83" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="301" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="301" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect id="cell_19_5" x="301" y="125" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-21" /><rect x="301" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="315" y="55" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="315" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="315" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="315" y="97" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="315" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_20_5" x="315" y="125" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-22" /><rect x="315" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="329" y="55" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="329" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="329" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="329" y="97" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="329" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect id="cell_21_5" x="329" y="125" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-23" /><rect x="329" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="343" y="55" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect x="343" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="343" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="343" y="97" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="343" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_22_5" x="343" y="125" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-24" /><rect x="343" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="357" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="357" y="69" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="357" y="83" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="357" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="357" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect id="cell_23_5" x="357" y="125" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-25" /><rect x="357" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="371" y="55" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="371" y="69" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="371" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="371" y="97" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="371" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect id="cell_24_5" x="371" y="125" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-26" /><rect x="371" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_25_0" x="385" y="55" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-32" /><rect id="cell_25_1" x="385" y="69" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-31" /><rect id="cell_25_2" x="385" y="83" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-30" /><rect id="cell_25_3" x="385" y="97" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-29" /><rect id="cell_25_4" x="385" y="111" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-28" /><rect id="cell_25_5" x="385" y="125" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-27" /><rect x="385" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect id="cell_26_0" x="399" y="55" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-33" /><rect x="399" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="399" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="399" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="399" y="111" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="399" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="399" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_27_0" x="413" y="55" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-34" /><rect x="413" y="69" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="413" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="413" y="97" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="413" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="413" y="125" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="413" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_28_0" x="427" y="55" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-35" /><rect x="427" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="427" y="83" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="427" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="427" y="111" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="427" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="427" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect id="cell_29_0" x="441" y="55" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-36" /><rect x="441" y="69" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="441" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="441" y="97" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="441" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="441" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="441" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect id="cell_30_0" x="455" y="55" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-37" /><rect x="455" y="69" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="455" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="455" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="455" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="455" y="125" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="455" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_31_0" x="469" y="55" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-38" /><rect x="469" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="469" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="469" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="469" y="111" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect x="469" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="469" y="139" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect id="cell_32_0" x="483" y="55" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-39" /><rect x="483" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="483" y="83" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="483" y="97" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="483" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="483" y="125" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="483" y="139" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect id="cell_33_0" x="497" y="55" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-40" /><rect x="497" y="69" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect x="497" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="497" y="97" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="497" y="111" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="497" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="497" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_34_0" x="511" y="55" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-41" /><rect x="511" y="69" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect x="511" y="83" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="511" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="511" y="111" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="511" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="511" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_35_0" x="525" y="55" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-42" /><rect x="525" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="525" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="525" y="97" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="525" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="525" y="125" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="525" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_36_0" x="539" y="55" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-43" /><rect x="539" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="539" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="539" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="539" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="539" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="539" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect id="cell_37_0" x="553" y="55" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-44" /><rect id="cell_37_1" x="553" y="69" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-45" /><rect id="cell_37_2" x="553" y="83" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-46" /><rect id="cell_37_3" x="553" y="97" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-47" /><rect id="cell_37_4" x="553" y="111" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-48" /><rect x="553" y="125" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="553" y="139" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="567" y="55" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="567" y="69" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="567" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="567" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_38_4" x="567" y="111" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-49" /><rect x="567" y="125" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="567" y="139" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="581" y="55" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="581" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="581" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="581" y="97" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect id="cell_39_4" x="581" y="111" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-50" /><rect x="581" y="125" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="581" y="139" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="595" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="595" y="69" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="595" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="595" y="97" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect id="cell_40_4" x="595" y="111" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-51" /><rect x="595" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="595" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="609" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="609" y="69" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="609" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="609" y="97" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect id="cell_41_4" x="609" y="111" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-52" /><rect x="609" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="609" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="623" y="55" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="623" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="623" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="623" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_42_4" x="623" y="111" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-53" /><rect x="623" y="125" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect x="623" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="637" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="637" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="637" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="637" y="97" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect id="cell_43_4" x="637" y="111" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-54" /><rect x="637" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="637" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="651" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="651" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="651" y="83" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="651" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_44_4" x="651" y="111" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-55" /><rect x="651" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="651" y="139" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="665" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="665" y="69" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="665" y="83" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="665" y="97" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect id="cell_45_4" x="665" y="111" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-56" /><rect x="665" y="125" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="665" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="679" y="55" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="679" y="69" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="679" y="83" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="679" y="97" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect id="cell_46_4" x="679" y="111" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-57" /><rect x="679" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="679" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="693" y="55" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="693" y="69" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="693" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="693" y="97" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect id="cell_47_4" x="693" y="111" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-58" /><rect x="693" y="125" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="693" y="139" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="707" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="707" y="69" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="707" y="83" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="707" y="97" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_48_4" x="707" y="111" width="11" height="11" rx="2" fill="#39d353" class="grid-cell cell-p-59" /><rect x="707" y="125" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="707" y="139" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="721" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect id="cell_49_1" x="721" y="69" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-63" /><rect id="cell_49_2" x="721" y="83" width="11" height="11" rx="2" fill="#26a641" class="grid-cell cell-p-62" /><rect id="cell_49_3" x="721" y="97" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-61" /><rect id="cell_49_4" x="721" y="111" width="11" height="11" rx="2" fill="#006d32" class="grid-cell cell-p-60" /><rect x="721" y="125" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="721" y="139" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="735" y="55" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="735" y="69" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="735" y="83" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="735" y="97" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="735" y="111" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="735" y="125" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="735" y="139" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect x="749" y="55" width="11" height="11" rx="2" fill="#006d32" opacity="0.85" /><rect x="749" y="69" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="749" y="83" width="11" height="11" rx="2" fill="#161b22" opacity="0.85" /><rect x="749" y="97" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" /><rect x="749" y="111" width="11" height="11" rx="2" fill="#39d353" opacity="0.85" /><rect x="749" y="125" width="11" height="11" rx="2" fill="#0e4429" opacity="0.85" /><rect x="749" y="139" width="11" height="11" rx="2" fill="#26a641" opacity="0.85" />
   </g>
 
-  <!-- BLOCK SNAKE SEGMENTS (Rectangles!) -->
+  <!-- BLOCK SNAKE SEGMENTS (HEAD IN FRONT, TAIL BEHIND) -->
   
-  <!-- 1. Tail Block (Small square) -->
+  <!-- 1. Tail Block (Smallest square trailing at the end) -->
   <g class="snake-tail">
     <rect x="-4.5" y="-4.5" width="9" height="9" rx="1.5" fill="#006d32" stroke="#26a641" stroke-width="0.8" />
   </g>
@@ -540,12 +547,14 @@
     <rect x="-5.5" y="-5.5" width="11" height="11" rx="2" fill="#39d353" stroke="#7ee787" stroke-width="1" />
   </g>
 
-  <!-- 5. Head Block (Brightest block with eyes) -->
+  <!-- 5. Head Block (Leads the front, facing forward with pixel eyes & tongue) -->
   <g class="snake-head">
     <rect x="-6" y="-6" width="12" height="12" rx="2.5" fill="#56d364" stroke="#ffffff" stroke-width="1.2" filter="url(#neonGlow)" />
-    <!-- Snake Eyes (Square pixels) -->
-    <rect x="-3" y="-3.5" width="2" height="2" fill="#0d1117" />
-    <rect x="1" y="-3.5" width="2" height="2" fill="#0d1117" />
+    <!-- Snake Eyes (Facing forward along +X direction) -->
+    <rect x="1.5" y="-3.5" width="2.5" height="2" fill="#0d1117" />
+    <rect x="1.5" y="1.5" width="2.5" height="2" fill="#0d1117" />
+    <!-- Flickering Tongue sticking out in front -->
+    <line x1="6" y1="0" x2="9" y2="0" stroke="#ff3860" stroke-width="1.5" stroke-linecap="round" />
   </g>
 
   <!-- Legend -->
