@@ -119,3 +119,5 @@ export function clearAllData(): Promise<void[]> {
 // Milestone optimization - Ref Issue #1
 
 // Milestone optimization - Ref Issue #3
+
+// Milestone optimization - Ref Issue #5
