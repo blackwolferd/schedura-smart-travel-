@@ -2,32 +2,51 @@ name: Generate Snake Contribution Grid
 
 on:
   schedule:
-    # Run every 12 hours
+    # Run automatically every 12 hours (00:00 & 12:00 UTC)
     - cron: "0 */12 * * *"
+  
+  # Allows manual 1-click execution from GitHub Actions tab
   workflow_dispatch:
+  
+  # Run on every push to the default branch
   push:
     branches:
       - main
 
+# Ensure correct write permissions for GITHUB_TOKEN to push to the output branch
+permissions:
+  contents: write
+
+# Prevent concurrent jobs from conflicting if triggered in rapid succession
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
+    name: Generate Contribution Snake Animation
     runs-on: ubuntu-latest
     timeout-minutes: 10
+
     steps:
-      - name: Generate Contribution Snake Animation
-        uses: Platane/snk/svg-only@v3
+      # Step 1: Generate SVGs & Animated GIF of the GitHub Contribution Grid
+      - name: Generate Snake Files
+        uses: Platane/snk@v3
         with:
-          github_user_name: blackwolferd
+          github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/github-contribution-grid-snake.gif?color_snake=orange&color_dots=#161b22,#0e4429,#006d32,#26a641,#39d353
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # Step 2: Deploy the generated artifacts to an isolated 'output' branch
       - name: Deploy to Output Branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
+          commit_message: "chore: update contribution snake animation [skip ci]"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
