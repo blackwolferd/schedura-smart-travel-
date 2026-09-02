@@ -115,3 +115,5 @@ export function clearAllData(): Promise<void[]> {
     AsyncStorage.removeItem(KEYS.SEARCHES)
   ]);
 }
+
+// Milestone optimization - Ref Issue #1
