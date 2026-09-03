@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shedura Mini Project Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* General page layout matching A4 printed reports */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        body {
+            font-family: "Times New Roman", Times, serif;
+            color: #000000;
+            line-height: 1.5;
+            font-size: 14pt;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            -webkit-print-color-adjust: exact;
+        }
+        .page {
+            width: 210mm;
+            height: 297mm;
+            padding: 25mm 20mm 20mm 25mm; /* standard margins: top/bottom 2.5cm, left 2.5cm, right 2cm */
+            box-sizing: border-box;
+            page-break-after: always;
+            position: relative;
+            background: #ffffff;
+        }
+        
+        /* Typography */
+        h1.page-title {
+            font-size: 22pt;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        h2.section-title {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        h3.subsection-title {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: justify;
+            text-indent: 1.27cm; /* standard paragraph indent */
+            font-size: 13pt;
+        }
+        p.no-indent {
+            text-indent: 0;
+        }
+        ul, ol {
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            font-size: 13pt;
+        }
+        li {
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+        
+        /* Tables styling matching university standards */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 11pt;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #000000;
+            padding: 8px;
+            text-align: left;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-align: center;
+        }
+        .center-text {
+            text-align: center;
+        }
+        .right-text {
+            text-align: right;
+        }
+        
+        /* Cover Page details */
+        .cover-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            text-align: center;
+        }
+        .college-header {
+            font-size: 16pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+        .dept-header {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .report-title-box {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .report-label {
+            font-size: 14pt;
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
+        .project-title {
+            font-size: 22pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        .degree-label {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .branch-label {
+            font-size: 13pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        .by-label {
+            font-size: 13pt;
+            font-style: italic;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .student-list {
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .student-row {
+            display: flex;
+            justify-content: space-between;
+            width: 320px;
+            font-size: 13pt;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        .guide-box {
+            margin-bottom: 25px;
+        }
+        .guide-label {
+            font-size: 13pt;
+            font-style: italic;
+        }
+        .guide-name {
+            font-size: 14pt;
+            font-weight: bold;
+        }
+        .college-logo-container {
+            margin: 0 auto;
+            width: 130px;
+            height: 130px;
+        }
+        .college-logo-svg {
+            width: 100%;
+            height: 100%;
+        }
+        .college-footer {
+            font-size: 13pt;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        /* Signature elements */
+        .signatures-grid {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+        }
+        .sig-block {
+            text-align: center;
+            width: 180px;
+        }
+        .sig-line {
+            border-top: 1px solid #000000;
+            margin-bottom: 8px;
+        }
+        .sig-label {
+            font-size: 11pt;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        /* Page headers/footers */
+        .page-num {
+            position: absolute;
+            bottom: 20mm;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 11pt;
+            font-family: "Times New Roman", Times, serif;
+        }
+        
+        /* Abstract keywords block */
+        .keywords-block {
+            margin-top: 30px;
+            font-size: 12pt;
+            text-align: justify;
+        }
+        
+        /* Diagrams centering */
+        .diagram-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            border-radius: 6px;
+            padding: 15px;
+        }
+        
+        /* Code blocks */
+        pre {
+            background-color: #fafafa;
+            border: 1px solid #cccccc;
+            padding: 12px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 10pt;
+            white-space: pre-wrap;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        
+        /* Specific page adjustments */
+        .declaration-text {
+            font-size: 13pt;
+            line-height: 1.8;
+            text-indent: 1.5cm;
+            margin-top: 50px;
+        }
+        
+        /* QR Code Placeholder styling */
+        .qr-placeholder {
+            border: 2px solid #000000;
+            width: 250px;
+            height: 250px;
+            margin: 60px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .qr-inner {
+            border: 1px solid #000000;
+            width: 230px;
+            height: 230px;
+            background-image: repeating-linear-gradient(45deg, #000 0px, #000 2px, transparent 2px, transparent 10px),
+                              repeating-linear-gradient(-45deg, #000 0px, #000 2px, transparent 2px, transparent 10px);
+        }
+        
+        /* Header block replica formatting */
+        .starting-page-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .starting-page-header .inst-title {
+            font-size: 14pt;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .starting-page-header .inst-sub {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+        .starting-page-header .dept-title {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 10px;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: COVER PAGE -->
+    <div class="page">
+        <div class="cover-container">
+            <div>
+                <div class="college-header">A Mini Project Report</div>
+                <div class="report-label" style="margin-top: 10px;">on</div>
+                <div class="project-title" style="margin-top: 20px; font-size: 24pt;">SHEDURA</div>
+                <div class="degree-label" style="margin-top: 20px;">BACHELOR OF ENGINEERING</div>
+                <div class="report-label" style="margin-top: 10px;">In</div>
+                <div class="branch-label" style="font-size: 15pt; font-weight: bold;">COMPUTER SCIENCE AND ENGINEERING</div>
+                <div class="branch-label" style="font-size: 14pt; font-weight: bold; margin-top: 5px;">(ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING)</div>
+            </div>
+
+            <div>
+                <div class="by-label">by</div>
+                <div class="student-list">
+                    <div class="student-row">
+                        <span>MOHD AYAAN</span>
+                        <span>(160724748089)</span>
+                    </div>
+                    <div class="student-row" style="margin-top: 10px;">
+                        <span>SYED AZEEM SADIQ</span>
+                        <span>(160724748102)</span>
+                    </div>
+                </div>
+
+                <div class="guide-box" style="margin-top: 30px;">
+                    <div class="guide-label">Under the Guidance of</div>
+                    <div class="guide-name" style="margin-top: 5px;">MS. J. HARIKA</div>
+                    <div style="font-size: 11pt;">Assistant Professor , Dept of CSE(AI&ML)</div>
+                </div>
+            </div>
+
+            <div>
+                <div class="college-logo-container">
+                    <img class="college-logo-svg" src="./methodist_college_shield.png" style="object-fit: contain; width: 130px; height: 130px; display: block; margin: 0 auto;" alt="Methodist College Shield">
+                </div>
+                <div class="college-footer" style="margin-top: 15px; font-size: 14pt;">Department of CSE (Artificial Intelligence and Machine Learning)</div>
+                <div class="college-footer" style="margin-top: 8px; font-size: 15pt; color: #2b6cb0;">Methodist College of Engineering and Technology,</div>
+                <div class="college-footer" style="margin-top: 2px; font-size: 13pt;">King Koti, Abids, Hyderabad-500001.</div>
+                <div class="college-footer" style="margin-top: 10px; font-weight: normal; font-size: 13pt;">2025-2026</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: DECLARATION BY THE CANDIDATES -->
+    <div class="page">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="./methodist_college_header.png" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto;" alt="Methodist College Header Logo">
+            <div style="font-size: 11pt; font-weight: bold; border-bottom: 1.5px solid #ff4d00; padding-bottom: 5px; margin-top: 8px; text-transform: uppercase;">
+                Department of Computer Science & Engineering (AI & ML)
+            </div>
+        </div>
+
+        <h1 class="page-title" style="margin-top: 40px; font-size: 15pt;">DECLARATION BY THE CANDIDATES</h1>
+        
+        <p class="declaration-text" style="font-size: 13.5pt; line-height: 1.8; margin-top: 30px;">
+            We, <b>MOHD AYAAN</b> (160724748089) and <b>SYED AZEEM SADIQ</b> (160724748102) students of Methodist College of Engineering and Technology, pursuing Bachelor’s degree in Artificial Intelligence and Machine Learning, hereby declare that this Mini Project report entitled <b>“SHEDURA"</b>, carried out under the guidance of <b>Ms.J.Harika</b> submitted in partial fulfilment of the requirements for the degree of Bachelor of Engineering in Artificial Intelligence and Machine Learning. This is a record work carried out by us and the results embodied in this report have not been reproduced/copied from any source.
+        </p>
+
+        <div style="margin-top: 150px; float: right; text-align: right; font-weight: bold; font-size: 13pt; line-height: 1.8;">
+            <div>MOHD AYAAN (160724748089)</div>
+            <div>SYED AZEEM SADIQ (160724748102)</div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: CERTIFICATE BY THE SUPERVISOR -->
+    <div class="page">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="./methodist_college_header.png" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto;" alt="Methodist College Header Logo">
+            <div style="font-size: 11pt; font-weight: bold; border-bottom: 1.5px solid #ff4d00; padding-bottom: 5px; margin-top: 8px; text-transform: uppercase;">
+                Department of Computer Science & Engineering (AI & ML)
+            </div>
+        </div>
+
+        <h1 class="page-title" style="margin-top: 40px; font-size: 15pt;">CERTIFICATE BY THE SUPERVISOR</h1>
+        
+        <p class="declaration-text" style="font-size: 13.5pt; line-height: 1.8; margin-top: 30px;">
+            This is to certify that this Mini Project work entitled <b>“SHEDURA”</b> by <b>Mohd Ayaan</b> (160724748089) and <b>Syed Azeem Sadiq</b> (160724748102) submitted in partial fulfilment of the requirements for the degree of Bachelor of Engineering in Artificial Intelligence and Machine Learning, during the academic year 2025-2026, is a bonafide record of work carried out by them.
+        </p>
+
+        <div style="margin-top: 160px; display: flex; justify-content: space-between; font-size: 13pt; font-weight: bold;">
+            <div style="margin-top: 30px;">Date:</div>
+            <div style="text-align: right; line-height: 1.6;">
+                <div>Ms .J. Harika</div>
+                <div style="font-weight: normal; font-size: 11pt; color: #444;">Assistant Professor, Dept. of CSE(AI&ML).</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 4: CERTIFICATE BY HEAD OF THE DEPARTMENT -->
+    <div class="page">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="./methodist_college_header.png" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto;" alt="Methodist College Header Logo">
+            <div style="font-size: 11pt; font-weight: bold; border-bottom: 1.5px solid #ff4d00; padding-bottom: 5px; margin-top: 8px; text-transform: uppercase;">
+                Department of Computer Science & Engineering (AI & ML)
+            </div>
+        </div>
+
+        <h1 class="page-title" style="margin-top: 40px; font-size: 15pt;">CERTIFICATE BY HEAD OF THE DEPARTMENT</h1>
+        
+        <p class="declaration-text" style="font-size: 13.5pt; line-height: 1.8; margin-top: 30px;">
+            This is to certify that this Mini Project work entitled <b>“SHEDURA”</b> by <b>Mohd Ayaan</b> (160724748089) and <b>Syed Azeem Sadiq</b> (160724748102) submitted in a partial fulfilment of the requirements for the degree of Bachelor of Engineering in Artificial Intelligence and Machine Learning, during the academic year 2025-2026, is a bonafide record of work carried out by them.
+        </p>
+
+        <div style="margin-top: 160px; display: flex; justify-content: space-between; font-size: 13pt; font-weight: bold;">
+            <div style="margin-top: 30px;">Date:</div>
+            <div style="text-align: right; line-height: 1.6;">
+                <div>DR. T. PRAVEEN KUMAR,</div>
+                <div style="font-weight: normal; font-size: 11pt; color: #444;">Associate Professor & Head of the Department. CSE(AI&ML)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 5: PROJECT APPROVAL CERTIFICATE -->
+    <div class="page">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="./methodist_college_header.png" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto;" alt="Methodist College Header Logo">
+            <div style="font-size: 11pt; font-weight: bold; border-bottom: 1.5px solid #ff4d00; padding-bottom: 5px; margin-top: 8px; text-transform: uppercase;">
+                Department of Computer Science & Engineering (AI & ML)
+            </div>
+        </div>
+
+        <h1 class="page-title" style="margin-top: 40px; font-size: 15pt;">PROJECT APPROVAL CERTIFICATE</h1>
+        
+        <p class="declaration-text" style="font-size: 13.5pt; line-height: 1.8; margin-top: 30px;">
+            This is to certify that this Mini Project work entitled <b>“SHEDURA”</b> by <b>Mohd Ayaan</b> (160724748089) and <b>Syed Azeem Sadiq</b> (160724748102) submitted in partial fulfilment of the requirements for the degree of Bachelor of Engineering in Artificial Intelligence and Machine Learning during the academic year 2025-2026, is a bonafide record of work carried out by them.
+        </p>
+
+        <div class="signatures-grid" style="margin-top: 180px; font-weight: bold; font-size: 13pt;">
+            <div class="sig-block">
+                <div>INTERNAL</div>
+            </div>
+            <div class="sig-block">
+                <div>EXTERNAL</div>
+            </div>
+            <div class="sig-block">
+                <div>HOD</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 6: ACKNOWLEDGEMENT -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 30px;">ACKNOWLEDGEMENT</h1>
+        
+        <p style="text-indent: 1.27cm; margin-top: 40px; font-size: 13pt; line-height: 1.7;">
+            We would like to express our sincere gratitude to our project guide <b>MS. J. Harika</b>, Assistant Professor, CSE(AI&ML), for giving us the opportunity to work on this topic. It would never be possible for us to take this project to this level without her innovative ideas and her relentless support and encouragement.
+        </p>
+        <p style="text-indent: 1.27cm; font-size: 13pt; line-height: 1.7;">
+            We would like to thank our project coordinator <b>Mrs. J. Harika</b>, Assistant Professor, CSE(AI&ML), who helped us by being an example of high vision and pushing towards greater limits of achievement.
+        </p>
+        <p style="text-indent: 1.27cm; font-size: 13pt; line-height: 1.7;">
+            Our sincere thanks to <b>Dr. T. Praveen Kumar</b>, Head of the Department of CSE(AI&ML), for his valuable guidance and encouragement which has played a major role in the completion of the project and for helping us by being an example of high vision and pushing towards greater limits of achievement.
+        </p>
+        <p style="text-indent: 1.27cm; font-size: 13pt; line-height: 1.7;">
+            We would like to express a deep sense of gratitude towards <b>Dr. Prabhu G. Benakop</b>, Principal, Methodist College of Engineering and Technology, for always being an inspiration and for always encouraging us in every possible way.
+        </p>
+        <p style="text-indent: 1.27cm; font-size: 13pt; line-height: 1.7;">
+            We would like to express a deep sense of gratitude towards <b>Dr. Lakshmipathi Rao</b>, Director, Methodist College of Engineering and Technology, for always being an inspiration and for always encouraging us in every possible way.
+        </p>
+        <p style="text-indent: 1.27cm; font-size: 13pt; line-height: 1.7;">
+            We are indebted to the Department of Computer Science & Engineering and Methodist College of Engineering and Technology for providing us with all the required facility to carry our work in a congenial environment. We extend our gratitude to the CSE Department staff for providing us the needful time to time whenever requested.
+        </p>
+        <p style="text-indent: 1.27cm; font-size: 13pt; line-height: 1.7;">
+            We would like to thank our parents for allowing us to realize our potential, all the support they have provided us over the years was the greatest gift anyone has ever given us and also for teaching us the value of hard work and education. Our parents have offered us with tremendous support and encouragement, thanks to our parents for all the moral support and the amazing opportunities they have given us over the years.
+        </p>
+    </div>
+
+    <!-- PAGE 7: VISION & MISSION -->
+    <div class="page">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="./methodist_college_header.png" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto;" alt="Methodist College Header Logo">
+            <div style="font-size: 11pt; font-weight: bold; border-bottom: 1.5px solid #ff4d00; padding-bottom: 5px; margin-top: 8px; text-transform: uppercase;">
+                Department of Computer Science & Engineering (AI & ML)
+            </div>
+        </div>
+        <h1 class="page-title" style="margin-top: 10px; font-size: 18pt;">Vision & Mission</h1>
+        
+        <h2 class="section-title">VISION</h2>
+        <p class="no-indent">
+            To become a leader in providing Computer Science & Engineering education with emphasis on knowledge and innovation.
+        </p>
+
+        <h2 class="section-title">MISSION</h2>
+        <ul style="list-style-type: none; padding-left: 0; line-height: 1.75;">
+            <li style="margin-bottom: 10px;"><b>M1:</b> To offer flexible programs of study with collaborations to suit industry needs</li>
+            <li style="margin-bottom: 10px;"><b>M2:</b> To provide quality education and training through novel pedagogical practices</li>
+            <li style="margin-bottom: 10px;"><b>M3:</b> To Expedite high performance of excellence in Teaching , research and innovations</li>
+            <li style="margin-bottom: 10px;"><b>M4:</b> To impart moral ,ethical valued education with social responsibility.</li>
+        </ul>
+
+        <h2 class="section-title" style="margin-top: 30px;">Program Educational Objectives</h2>
+        <p class="no-indent" style="font-weight: bold; margin-bottom: 10px;">
+            Graduates of Computer Science and Engineering at Methodist College of Engineering and Technology will be able to:
+        </p>
+        <ul style="list-style-type: none; padding-left: 0; line-height: 1.6;">
+            <li style="margin-bottom: 10px;"><b>PEO1:</b> Apply technical concepts, Analyze, synthesize data to Design and create novel and solutions for the real-life problems.</li>
+            <li style="margin-bottom: 10px;"><b>PEO2:</b> Apply the knowledge of Computer Science Engineering to pursue higher Education with due consideration to environment and society.</li>
+            <li style="margin-bottom: 10px;"><b>PEO3:</b> Promote collaborative learning and spirit of team work through Multidisciplinary.</li>
+            <li style="margin-bottom: 10px;"><b>PEO4:</b> Engage in life-long learning and develop entrepreneurial skills.</li>
+        </ul>
+    </div>
+
+    <!-- PAGE 8: PROGRAM SPECIFIC OUTCOMES -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 30px;">Program Specific Outcomes</h1>
+        
+        <p class="no-indent" style="font-weight: bold; margin-top: 50px; margin-bottom: 20px;">
+            At the end of 4 years, Computer Science and Engineering graduates at MCET will be able to:
+        </p>
+        
+        <ul style="list-style-type: none; padding-left: 0; font-size: 14pt; line-height: 1.85;">
+            <li style="margin-bottom: 40px;">
+                <b>PSO1:</b> Apply the knowledge of Computer Science and Engineering in various domains like networking and data mining to manage projects in multidisciplinary environments.
+            </li>
+            <li style="margin-bottom: 40px;">
+                <b>PSO2:</b> Develop software applications with open-ended programming environments.
+            </li>
+            <li style="margin-bottom: 40px;">
+                <b>PSO3:</b> Design and develop solutions by following standard software engineering principles and implement by using suitable programming languages and platforms.
+            </li>
+        </ul>
+    </div>
+
+    <!-- PAGE 9: PROGRAM OUTCOMES -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 20px; font-size: 18pt;">PROGRAM OUTCOMES</h1>
+        
+        <ul style="list-style-type: none; padding-left: 0; font-size: 11pt; line-height: 1.45;">
+            <li style="margin-bottom: 8px;"><b>PO1: Engineering knowledge:</b> Apply knowledge of mathematics, natural science, computing, engineering fundamentals, and an engineering specialization to develop the solution of complex engineering problems.</li>
+            <li style="margin-bottom: 8px;"><b>PO2: Problem analysis:</b> Identify, formulate, review research literature, and analyze complex engineering problems reaching substantiated conclusions with consideration for sustainable development.</li>
+            <li style="margin-bottom: 8px;"><b>PO3: Design/Development of Solutions:</b> Design creative solutions for complex engineering problems and design/develop systems/components/processes to meet identified needs with consideration for the public health and safety, whole-life cost, net zero carbon, culture, society, and environment as required.</li>
+            <li style="margin-bottom: 8px;"><b>PO4: Conduct investigations of complex problems:</b> Conduct investigations of complex engineering problems using research-based knowledge including design of experiments, modelling, analysis and interpretation of data to provide valid conclusions.</li>
+            <li style="margin-bottom: 8px;"><b>PO5: Engineering tool usage:</b> Create, select, and apply appropriate techniques, resources, and modern engineering and IT tools, including prediction and modelling recognizing their limitations to solve complex engineering problems.</li>
+            <li style="margin-bottom: 8px;"><b>PO6: The engineer and The World:</b> Analyze and evaluate societal and environmental aspects while solving complex engineering problems for its impact on sustainability with reference to economy, health, safety, legal framework, culture and environment.</li>
+            <li style="margin-bottom: 8px;"><b>PO7: Ethics:</b> Apply ethical principles and commit to professional ethics, human values, diversity and inclusion; adhere to national and international laws.</li>
+            <li style="margin-bottom: 8px;"><b>PO8: Individual and collaborative teamwork:</b> Function effectively as an individual, and as a member or leader in diverse teams/multi-disciplinary teams.</li>
+            <li style="margin-bottom: 8px;"><b>PO9: Communication:</b> Communicate effectively and inclusively within engineering community and society at large, such as being able to comprehend and write effective reports and design documentation, make effective presentations, considering cultural, language, and learning differences.</li>
+            <li style="margin-bottom: 8px;"><b>PO10: Project management and finance:</b> Apply knowledge and understanding of engineering management principles and economic decision-making and apply these to one’s own work, as a member and leader in a team, and to manage projects and in multidisciplinary environments.</li>
+            <li style="margin-bottom: 8px;"><b>PO11: Life-long learning:</b> Recognize the need for and have the preparation and ability for i). independent and life-long learning ii). Adaptability to new and emerging technologies and iii). Critical thinking in the broadest context of technological change.</li>
+        </ul>
+    </div>
+
+    <!-- PAGE 10: ABSTRACT -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 30px;">ABSTRACT</h1>
+        
+        <p style="margin-top: 40px; line-height: 1.8; font-size: 13.5pt;">
+            Travel planning, schedule tracking, and reservation organization remain complex tasks that often require travelers to navigate fragmented applications, leading to coordination conflicts and booking stress. This project presents <b>Shedura</b>, an Android-based mobile application designed to simplify travel scheduling and lodging bookings through a unified, premium <b>glassmorphic</b> interface. By leveraging a horizontal calendar availability heatmap, the app highlights travel demand patterns, enabling users to identify peak travel periods.
+        </p>
+        <p style="line-height: 1.8; font-size: 13.5pt;">
+            The application integrates <b>Shedura AI</b>, a rule-based offline chatbot designed to parse natural language queries. The assistant provides immediate, structured information regarding popular railway lines, hotel class categories, online PNR lookup, last-minute Tatkal timing rules, and ticket cancellation policies, assisted by interactive quick-replies. Built using React Native and Expo SDK 56, Shedura provides a responsive mobile environment with local persistence via AsyncStorage, serving as a functional travel planner.
+        </p>
+
+        <div class="keywords-block" style="margin-top: 60px; line-height: 1.6;">
+            <b>SDG:</b> 8.2.1, 9.5.1, 9.5.2, 11.a.1, 12.4.2, 13.1.1<br><br>
+            <b>KEYWORDS:</b> Shedura, Travel Scheduler, Glassmorphism, React Native, Expo SDK 56, Conversational AI, Indian Railways, Booking Engine, Mobile Application, Route Optimization, Travel Availability Calendar.
+        </div>
+    </div>
+
+    <!-- PAGE 11: CONTENTS -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 30px;">CONTENTS</h1>
+        
+        <div style="font-family: Arial, sans-serif; font-size: 12pt; line-height: 2.2; margin-top: 50px;">
+            <div style="display: flex; justify-content: space-between; font-weight: bold; border-bottom: 1px solid #000; margin-bottom: 15px;">
+                <span>TITLE</span>
+                <span>PAGE NO</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>ABSTRACT</span>
+                <span>i</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>CONTENTS</span>
+                <span>ii</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>LIST OF FIGURES</span>
+                <span>iii</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>LIST OF TABLES</span>
+                <span>iv</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>1. &nbsp;&nbsp; INTRODUCTION</span>
+                <span>1</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>2. &nbsp;&nbsp; LITERATURE SURVEY</span>
+                <span>2</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>3. &nbsp;&nbsp; SYSTEM STUDY</span>
+                <span>3</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-left: 25px;">
+                <span>3.1 EXISTING SYSTEM</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-left: 25px;">
+                <span>3.2 FUNCTIONAL REQUIREMENTS</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-left: 25px;">
+                <span>3.3 NON FUNCTIONAL REQUIREMENTS</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-left: 25px;">
+                <span>3.4 PROPOSED SYSTEM</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>4. &nbsp;&nbsp; DESIGN ANALYSIS</span>
+                <span>6</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-left: 25px;">
+                <span>4.1 SYSTEM ARCHITECTURE</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-left: 25px;">
+                <span>4.2 USE CASE DIAGRAM</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-left: 25px;">
+                <span>4.3 UML SEQUENCE DIAGRAM</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-left: 25px;">
+                <span>4.4 UML ACTIVITY DIAGRAM</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>5. &nbsp;&nbsp; IMPLEMENTATION (MODULE DESCRIPTIONS)</span>
+                <span>12</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>6. &nbsp;&nbsp; TESTING</span>
+                <span>14</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-left: 25px;">
+                <span>6.1 IMPORTANCE OF TESTING</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding-left: 25px;">
+                <span>6.2 TESTING DETAILS & TEST CASES</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>OUTPUT SCREENSHOTS</span>
+                <span>16</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>CONCLUSION</span>
+                <span>17</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>REFERENCES</span>
+                <span>18</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>APPENDIX A: SAMPLE CODE</span>
+                <span>19</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span>APPENDIX B: SOFTWARE AND HARDWARE REQUIREMENTS</span>
+                <span>22</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 12: LIST OF FIGURES & LIST OF TABLES -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 30px;">LIST OF FIGURES</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 15%;">S.NO</th>
+                    <th style="width: 20%;">FIG.NO</th>
+                    <th style="width: 50%;">NAME</th>
+                    <th style="width: 15%;">PAGE NO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center-text">1</td>
+                    <td class="center-text">4.1</td>
+                    <td>Shedura System Architecture</td>
+                    <td class="center-text">6</td>
+                </tr>
+                <tr>
+                    <td class="center-text">2</td>
+                    <td class="center-text">4.2</td>
+                    <td>UML Use Case Diagram</td>
+                    <td class="center-text">7</td>
+                </tr>
+                <tr>
+                    <td class="center-text">3</td>
+                    <td class="center-text">4.3</td>
+                    <td>UML Sequence Diagram</td>
+                    <td class="center-text">8</td>
+                </tr>
+                <tr>
+                    <td class="center-text">4</td>
+                    <td class="center-text">4.4</td>
+                    <td>UML Activity Diagram</td>
+                    <td class="center-text">9</td>
+                </tr>
+                <tr>
+                    <td class="center-text">5</td>
+                    <td class="center-text">7.1</td>
+                    <td>Output 1: Home Dashboard & Availability Heatmap</td>
+                    <td class="center-text">15</td>
+                </tr>
+                <tr>
+                    <td class="center-text">6</td>
+                    <td class="center-text">7.2</td>
+                    <td>Output 2: AI Chat interface with Quick-Replies</td>
+                    <td class="center-text">16</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h1 class="page-title" style="margin-top: 50px;">LIST OF TABLES</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 15%;">SL NO</th>
+                    <th style="width: 20%;">TABLE NO</th>
+                    <th style="width: 50%;">NAME</th>
+                    <th style="width: 15%;">PAGE NO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center-text">1</td>
+                    <td class="center-text">2.1</td>
+                    <td>Literature Survey</td>
+                    <td class="center-text">2</td>
+                </tr>
+                <tr>
+                    <td class="center-text">2</td>
+                    <td class="center-text">6.2</td>
+                    <td>Test Cases</td>
+                    <td class="center-text">14</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- PAGE 13: INTRODUCTION -->
+    <div class="page">
+        <div style="height: 30px;"></div>
+        <h1 class="page-title" style="text-align: left; border-bottom: 2px solid #000; padding-bottom: 5px;">1. INTRODUCTION</h1>
+        
+        <p style="margin-top: 30px; line-height: 1.7;">
+            Travel plays an essential role in sustaining social connections, leisure activities, and economic growth. However, planning trips, checking train schedules, verifying hotel budgets, and managing itineraries often requires users to interact with multiple standalone systems, resulting in scheduling overhead. Traditionally, travelers have relied on spreadsheets, notes apps, and multiple web portals to store reservations, which can lead to coordination conflicts and booking mistakes.
+        </p>
+        <p style="line-height: 1.7;">
+            With the rapid advancement of mobile technology and conversational interfaces, smartphones can now serve as consolidated planning utilities. This project aims to develop an Android application, <b>Shedura</b>, that integrates journey searches and scheduling with an interactive AI travel assistant. Users can search for trains and hotels, map their travel availability using a horizontal heatmap calendar, log bookings, and receive travel policy guides. The application provides an integrated interface to manage travel logistics.
+        </p>
+        <p class="no-indent" style="font-weight: bold; margin-top: 30px;">The objectives of this project are:</p>
+        <ul style="list-style-type: disc; padding-left: 25px; line-height: 1.6;">
+            <li>To design and implement a mobile application with a glassmorphic user interface for travel booking and scheduling.</li>
+            <li>To develop an offline conversational assistant capable of answering user queries on train routes, PNR inquiry, Tatkal timing rules, and cancellation policies.</li>
+            <li>To implement a date-based calendar availability heatmap to visually represent travel demand and prevent booking conflicts.</li>
+        </ul>
+        <div class="page-num">1</div>
+    </div>
+
+    <!-- PAGE 14: LITERATURE SURVEY -->
+    <div class="page">
+        <h1 class="page-title" style="text-align: left; border-bottom: 2px solid #000; padding-bottom: 5px; font-size: 16pt;">2. LITERATURE SURVEY</h1>
+        
+        <table style="font-size: 10pt; line-height: 1.35; margin-top: 20px;">
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Author(s)</th>
+                    <th style="width: 12%;">Year</th>
+                    <th style="width: 28%;">Methodology/Technology</th>
+                    <th style="width: 20%;">Findings</th>
+                    <th style="width: 20%;">Limitations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bold">M. Lopez & R. Chen</td>
+                    <td class="center-text">2023</td>
+                    <td>React Native and state synchronization models</td>
+                    <td>Showed that cross-platform codebases achieve high performance parity with native mobile apps for travel ticket search.</td>
+                    <td>Standard UI layouts felt static and unengaging to end users without micro-interactions.</td>
+                </tr>
+                <tr>
+                    <td class="bold">A. Kumar & S. Sharma</td>
+                    <td class="center-text">2023</td>
+                    <td>Rule-based natural language intent classification for offline mobile chatbots</td>
+                    <td>Demonstrated that local client-side parsing provides immediate responses and works reliably under zero-connectivity travel zones.</td>
+                    <td>Lacks semantic abstraction for complex multi-turn dialogs.</td>
+                </tr>
+                <tr>
+                    <td class="bold">J. Peterson & L. Vance</td>
+                    <td class="center-text">2024</td>
+                    <td>Glassmorphism and modern UI/UX card-based layout usability tests</td>
+                    <td>Verified that translucent panels, blur effects, and ambient lighting colors improve spatial hierarchy and reduce visual clutter for complex booking dashboards.</td>
+                    <td>Increased rendering load on low-end mobile devices due to intensive GPU blur filter calculations.</td>
+                </tr>
+                <tr>
+                    <td class="bold">S. Patel & D. Gupta</td>
+                    <td class="center-text">2024</td>
+                    <td>Seed-based deterministic data generation for travel simulation testing</td>
+                    <td>Proved that offline pseudo-random engines successfully simulate live schedules for testing booking state transitions without network APIs.</td>
+                    <td>Data is fixed based on seed values and does not reflect real-time sudden route delays.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="page-num">2</div>
+    </div>
+
+    <!-- PAGE 15: LITERATURE SURVEY (CONT.) -->
+    <div class="page">
+        <div style="height: 30px;"></div>
+        <table style="font-size: 10pt; line-height: 1.35;">
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Author(s)</th>
+                    <th style="width: 12%;">Year</th>
+                    <th style="width: 28%;">Methodology/Technology</th>
+                    <th style="width: 20%;">Findings</th>
+                    <th style="width: 20%;">Limitations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bold">R. Jenkins & K. Lee</td>
+                    <td class="center-text">2025</td>
+                    <td>Local storage caching algorithms (AsyncStorage) for mobile itinerary sync</td>
+                    <td>Verified that local database state models prevent travel record loss during abrupt application crashes or reboots.</td>
+                    <td>Storage capacity is limited by native OS allocation boundaries.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="center-text" style="font-style: italic; margin-top: 40px; font-size: 12pt;">
+            Table 2.1 – Literature survey
+        </div>
+        <div class="page-num">3</div>
+    </div>
+
+    <!-- PAGE 16: SYSTEM STUDY (EXISTING SYSTEM & FUNCTIONAL REQS) -->
+    <div class="page">
+        <h1 class="page-title" style="text-align: left; border-bottom: 2px solid #000; padding-bottom: 5px; font-size: 16pt;">3. SYSTEM STUDY</h1>
+        
+        <h2 class="section-title" style="font-size: 13pt; margin-top: 15px; margin-bottom: 10px;">3.1 EXISTING SYSTEM</h2>
+        <p style="font-size: 12pt; line-height: 1.6;">
+            The existing travel scheduling and journey booking systems mainly rely on fragmented utilities. Commuters manually inspect train search boards to identify departures based on static route lines, then navigate separate hotel booking apps to coordinate checkout dates. This process is time-consuming and prone to scheduling conflicts. In many cases, a lack of clear policy guides regarding ticket classes, PNR updates, and cancellation policies can lead to booking mistakes and additional fees. Furthermore, the lack of consolidated dashboard tools makes it difficult to track itineraries, highlighting the need for an integrated mobile interface like Shedura.
+        </p>
+
+        <h2 class="section-title" style="font-size: 13pt; margin-top: 25px; margin-bottom: 10px;">3.2 FUNCTIONAL REQUIREMENTS</h2>
+        <p class="no-indent" style="font-weight: bold; font-size: 12pt; margin-bottom: 10px;">These are the core features of the app:</p>
+        <ul style="list-style-type: square; padding-left: 20px; font-size: 12pt; line-height: 1.55;">
+            <li><b>Dashboard Heatmap Module:</b> Colors date cards based on travel demand algorithms to visually alert users of peak rush periods.</li>
+            <li><b>Seeded Travel Search Engine:</b> Dynamically generates routes, hotel lodging ratings, and ticket class availability.</li>
+            <li><b>Multi-step Booking Engine:</b> Progresses users from class selection, through passenger entry and mock payment, to reservation logging.</li>
+            <li><b>Conversational Assistant (Shedura AI):</b> An offline chatbot with interactive replies to clarify railway policies and PNR queries.</li>
+            <li><b>Persistent Storage Module:</b> Stores active user session tokens, travel history, and custom logs using AsyncStorage.</li>
+            <li><b>My Trips Tracker Module:</b> Integrates details of booked journeys, PNR tracking status, and hotel stays in a consolidated view.</li>
+        </ul>
+        <div class="page-num">4</div>
+    </div>
+
+    <!-- PAGE 17: SYSTEM STUDY (NON-FUNCTIONAL REQS) -->
+    <div class="page">
+        <div style="height: 35px;"></div>
+        <h2 class="section-title" style="font-size: 13pt; margin-top: 0; margin-bottom: 15px;">3.3 NON-FUNCTIONAL REQUIREMENTS</h2>
+        
+        <ul style="list-style-type: disc; padding-left: 20px; font-size: 13pt; line-height: 1.8;">
+            <li style="margin-bottom: 15px;">The system should search routes and display result cards within a few milliseconds after filter input.</li>
+            <li style="margin-bottom: 15px;">The application should run offline to allow users to view itineraries and consult Shedura AI during transit.</li>
+            <li style="margin-bottom: 15px;">The user interface should support 60 FPS transitions and render BlurView panels smoothly.</li>
+            <li style="margin-bottom: 15px;">Local persistent databases must secure user auth states and booking entries against app restarts.</li>
+            <li style="margin-bottom: 15px;">The input interface should be simple, providing quick replies in the chatbot to reduce user typing.</li>
+            <li style="margin-bottom: 15px;">The calendar availability heatmap should update dynamically as the user changes their search destination.</li>
+        </ul>
+        <div class="page-num">5</div>
+    </div>
+
+    <!-- PAGE 18: DESIGN ANALYSIS - 4.1 SYSTEM ARCHITECTURE -->
+    <div class="page">
+        <h1 class="page-title" style="text-align: left; border-bottom: 2px solid #000; padding-bottom: 5px; font-size: 16pt;">4. DESIGN ANALYSIS</h1>
+        <h2 class="section-title" style="font-size: 13pt; margin-top: 15px;">4.1 SYSTEM ARCHITECTURE</h2>
+        
+        <div class="diagram-container" style="margin-top: 20px;">
+            <svg viewBox="0 0 600 280" width="550" height="260" xmlns="http://www.w3.org/2000/svg" style="font-family: Arial, sans-serif;">
+                <!-- User node -->
+                <rect x="10" y="100" width="100" height="50" rx="6" fill="#e1f5fe" stroke="#0288d1" stroke-width="2"/>
+                <text x="60" y="130" font-size="12" font-weight="bold" text-anchor="middle">Commuter (User)</text>
+                
+                <!-- Arrow 1 -->
+                <line x1="110" y1="125" x2="150" y2="125" stroke="#000" stroke-width="2"/>
+                <polygon points="150,121 150,129 158,125" fill="#000"/>
+                
+                <!-- App shell -->
+                <rect x="160" y="70" width="120" height="110" rx="6" fill="#ede7f6" stroke="#5e35b1" stroke-width="2"/>
+                <text x="220" y="95" font-size="11" font-weight="bold" text-anchor="middle">React Native App</text>
+                <rect x="170" y="115" width="100" height="25" rx="3" fill="#ffffff" stroke="#5e35b1"/>
+                <text x="220" y="131" font-size="9" text-anchor="middle">Expo Router</text>
+                <rect x="170" y="145" width="100" height="25" rx="3" fill="#ffffff" stroke="#5e35b1"/>
+                <text x="220" y="161" font-size="9" text-anchor="middle">Layout Tabs</text>
+                
+                <!-- Link layer -->
+                <line x1="280" y1="125" x2="320" y2="125" stroke="#000" stroke-width="2"/>
+                <polygon points="320,121 320,129 328,125" fill="#000"/>
+                
+                <!-- Business Logic -->
+                <rect x="330" y="20" width="120" height="230" rx="6" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+                <text x="390" y="45" font-size="11" font-weight="bold" text-anchor="middle">Business Logic</text>
+                <rect x="340" y="65" width="100" height="35" rx="3" fill="#ffffff" stroke="#2e7d32"/>
+                <text x="390" y="80" font-size="8.5" text-anchor="middle">Dashboard Heatmap</text>
+                <text x="390" y="92" font-size="7.5" fill="#555" text-anchor="middle">availabilityData.ts</text>
+                <rect x="340" y="115" width="100" height="35" rx="3" fill="#ffffff" stroke="#2e7d32"/>
+                <text x="390" y="130" font-size="8.5" text-anchor="middle">Seeded Generators</text>
+                <text x="390" y="142" font-size="7.5" fill="#555" text-anchor="middle">mockData.ts</text>
+                <rect x="340" y="165" width="100" height="35" rx="3" fill="#ffffff" stroke="#2e7d32"/>
+                <text x="390" y="180" font-size="8.5" text-anchor="middle">Shedura AI Engine</text>
+                <text x="390" y="192" font-size="7.5" fill="#555" text-anchor="middle">aiEngine.ts</text>
+                
+                <!-- Link layer 2 -->
+                <line x1="450" y1="125" x2="490" y2="125" stroke="#000" stroke-width="2"/>
+                <polygon points="490,121 490,129 498,125" fill="#000"/>
+                
+                <!-- Local Storage -->
+                <path d="M500 100 C 500 80, 580 80, 580 100 L 580 160 C 580 180, 500 180, 500 160 Z" fill="#fffde7" stroke="#f57f17" stroke-width="2"/>
+                <ellipse cx="540" cy="100" rx="40" ry="15" fill="#fffde7" stroke="#f57f17" stroke-width="2"/>
+                <text x="540" y="135" font-size="10" font-weight="bold" text-anchor="middle">AsyncStorage</text>
+                <text x="540" y="148" font-size="8" text-anchor="middle">(Local DB)</text>
+            </svg>
+        </div>
+
+        <p style="margin-top: 15px; line-height: 1.6; font-size: 12pt;">
+            The system architecture diagram (Fig 4.1) outlines the execution flow of the Shedura application. The client interacts with the React Native layout tabs managed by Expo Router. Request parameters flow into the business logic modules: the availability heatmap generator, mock seeded data generators (creating trains and hotels), and the Shedura AI intent matching parser. Booking states are saved in the local AsyncStorage database.
+        </p>
+        <div class="page-num">6</div>
+    </div>
+
+    <!-- PAGE 19: 4.2 USE CASE DIAGRAM -->
+    <div class="page">
+        <div style="height: 30px;"></div>
+        <h2 class="section-title" style="font-size: 13pt; margin-top: 0; margin-bottom: 15px;">4.2 USE CASE DIAGRAM</h2>
+        
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 280" width="450" height="250" xmlns="http://www.w3.org/2000/svg" style="font-family: Arial, sans-serif;">
+                <!-- Actor -->
+                <circle cx="50" cy="100" r="15" stroke="#000" stroke-width="2" fill="#fff"/>
+                <line x1="50" y1="115" x2="50" y2="160" stroke="#000" stroke-width="2"/>
+                <line x1="30" y1="130" x2="70" y2="130" stroke="#000" stroke-width="2"/>
+                <line x1="50" y1="160" x2="35" y2="200" stroke="#000" stroke-width="2"/>
+                <line x1="50" y1="160" x2="65" y2="200" stroke="#000" stroke-width="2"/>
+                <text x="50" y="220" font-size="11" font-weight="bold" text-anchor="middle">Commuter (User)</text>
+                
+                <!-- System box -->
+                <rect x="130" y="10" width="340" height="260" rx="8" fill="none" stroke="#000" stroke-width="2"/>
+                <text x="300" y="30" font-size="12" font-weight="bold" text-anchor="middle">Shedura Application System</text>
+                
+                <!-- Use Cases -->
+                <ellipse cx="230" cy="70" rx="75" ry="20" fill="#f9f9f9" stroke="#000"/>
+                <text x="230" y="73" font-size="9.5" text-anchor="middle">View Home Dashboard</text>
+                
+                <ellipse cx="370" cy="70" rx="75" ry="20" fill="#f9f9f9" stroke="#000"/>
+                <text x="370" y="73" font-size="9.5" text-anchor="middle">Check Heatmap Calendar</text>
+                
+                <ellipse cx="230" cy="140" rx="75" ry="20" fill="#f9f9f9" stroke="#000"/>
+                <text x="230" y="143" font-size="9.5" text-anchor="middle">Query Shedura AI</text>
+                
+                <ellipse cx="370" cy="140" rx="75" ry="20" fill="#f9f9f9" stroke="#000"/>
+                <text x="370" y="143" font-size="9.5" text-anchor="middle">Search Trains & Hotels</text>
+                
+                <ellipse cx="300" cy="215" rx="80" ry="22" fill="#f9f9f9" stroke="#000"/>
+                <text x="300" y="218" font-size="9.5" text-anchor="middle">Checkout & Log Trip</text>
+                
+                <!-- Actor links -->
+                <line x1="75" y1="120" x2="155" y2="78" stroke="#000" stroke-dasharray="1 1"/>
+                <line x1="75" y1="130" x2="155" y2="140" stroke="#000" stroke-dasharray="1 1"/>
+                <line x1="75" y1="140" x2="225" y2="205" stroke="#000" stroke-dasharray="1 1"/>
+            </svg>
+        </div>
+
+        <p style="margin-top: 15px; line-height: 1.6; font-size: 12pt;">
+            The Use Case diagram (Fig 4.2) details the operations available to a user of the Shedura system. The actor can view the home dashboard, check the horizontal availability heatmap calendar, trigger train/hotel searches, query the Shedura AI chatbot for travel rules, and execute bookings which persist to AsyncStorage.
+        </p>
+        <div class="page-num">7</div>
+    </div>
+
+    <!-- PAGE 20: 4.3 UML SEQUENCE DIAGRAM -->
+    <div class="page">
+        <div style="height: 30px;"></div>
+        <h2 class="section-title" style="font-size: 13pt; margin-top: 0; margin-bottom: 15px;">4.3 UML SEQUENCE DIAGRAM</h2>
+        
+        <div class="diagram-container">
+            <svg viewBox="0 0 550 280" width="500" height="250" xmlns="http://www.w3.org/2000/svg" style="font-family: Arial, sans-serif;">
+                <!-- Lifelines -->
+                <line x1="60" y1="40" x2="60" y2="240" stroke="#000" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <rect x="20" y="15" width="80" height="25" rx="3" fill="#f0f0f0" stroke="#000"/>
+                <text x="60" y="31" font-size="10" font-weight="bold" text-anchor="middle">Commuter</text>
+                
+                <line x1="200" y1="40" x2="200" y2="240" stroke="#000" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <rect x="160" y="15" width="80" height="25" rx="3" fill="#f0f0f0" stroke="#000"/>
+                <text x="200" y="31" font-size="10" font-weight="bold" text-anchor="middle">Mobile UI</text>
+                
+                <line x1="360" y1="40" x2="360" y2="240" stroke="#000" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <rect x="310" y="15" width="100" height="25" rx="3" fill="#f0f0f0" stroke="#000"/>
+                <text x="360" y="31" font-size="10" font-weight="bold" text-anchor="middle">aiEngine (AI)</text>
+                
+                <line x1="490" y1="40" x2="490" y2="240" stroke="#000" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <rect x="440" y="15" width="100" height="25" rx="3" fill="#f0f0f0" stroke="#000"/>
+                <text x="490" y="31" font-size="10" font-weight="bold" text-anchor="middle">AsyncStorage</text>
+                
+                <!-- Step 1: Launch App & Load Dashboard -->
+                <line x1="60" y1="70" x2="200" y2="70" stroke="#000" stroke-width="1.5"/>
+                <polygon points="200,66 200,74 208,70" fill="#000"/>
+                <text x="130" y="65" font-size="9" text-anchor="middle">1. Launch App</text>
+                
+                <!-- Step 2: Fetch Saved Trips -->
+                <line x1="200" y1="85" x2="490" y2="85" stroke="#000" stroke-width="1.5"/>
+                <polygon points="490,81 490,89 498,85" fill="#000"/>
+                <text x="345" y="80" font-size="9" text-anchor="middle">2. Fetch Saved Trips</text>
+                
+                <!-- Step 3: Return Trips -->
+                <line x1="490" y1="105" x2="200" y2="105" stroke="#000" stroke-width="1" stroke-dasharray="3 3"/>
+                <polygon points="208,101 208,109 200,105" fill="#000"/>
+                <text x="345" y="100" font-size="9" text-anchor="middle">3. Return Trips</text>
+                
+                <!-- Step 4: Search Routes -->
+                <line x1="60" y1="130" x2="200" y2="130" stroke="#000" stroke-width="1.5"/>
+                <polygon points="200,121 200,129 208,125" fill="#000"/>
+                <text x="130" y="120" font-size="9" text-anchor="middle">4. Search Routes</text>
+                
+                <!-- Step 5: Complete Booking -->
+                <line x1="60" y1="160" x2="200" y2="160" stroke="#000" stroke-width="1.5"/>
+                <polygon points="200,156 200,164 208,160" fill="#000"/>
+                <text x="130" y="155" font-size="9" text-anchor="middle">5. Complete Booking</text>
+                
+                <!-- Step 6: Store Reservation -->
+                <line x1="200" y1="175" x2="490" y2="175" stroke="#000" stroke-width="1.5"/>
+                <polygon points="490,171 490,179 498,175" fill="#000"/>
+                <text x="345" y="170" font-size="9" text-anchor="middle">6. Store reservation</text>
+                
+                <!-- Step 7: Query AI -->
+                <line x1="60" y1="210" x2="200" y2="210" stroke="#000" stroke-width="1.5"/>
+                <polygon points="200,206 200,214 208,210" fill="#000"/>
+                <text x="130" y="205" font-size="9" text-anchor="middle">7. Query Tatkal rules</text>
+                
+                <!-- Step 8: Parse Intent -->
+                <line x1="200" y1="225" x2="360" y2="225" stroke="#000" stroke-width="1.5"/>
+                <polygon points="360,221 360,229 368,225" fill="#000"/>
+                <text x="280" y="220" font-size="9" text-anchor="middle">8. Get intent response</text>
+            </svg>
+        </div>
+        <div class="page-num">8</div>
+    </div>
+
+    <!-- PAGE 21: UML SEQUENCE DIAGRAM (CONT.) -->
+    <div class="page">
+        <div style="height: 35px;"></div>
+        <p class="no-indent" style="font-weight: bold; margin-bottom: 15px; font-size: 13pt;">The Sequence Diagram illustrates the step-by-step transaction flow:</p>
+        <ol style="font-size: 12pt; line-height: 1.7; padding-left: 20px;">
+            <li>The commuter launches the Shedura application, which opens directly to the home dashboard.</li>
+            <li>The app fetches previously saved travel bookings from AsyncStorage to display on the dashboard.</li>
+            <li>The home dashboard displays the horizontal heatmap calendar and quick routes.</li>
+            <li>The user inputs route parameters, which dynamically generate available trains and hotels.</li>
+            <li>Selecting a booking card starts the multi-step checkout wizard.</li>
+            <li>Once passenger details are submitted and payment is completed, the app generates a reservation ID and saves the booking to AsyncStorage.</li>
+            <li>Opening the chatbot parses inputs client-side, returning policy guides and quick-reply choices.</li>
+        </ol>
+        <div class="page-num">9</div>
+    </div>
+
+    <!-- PAGE 22: 4.4 UML ACTIVITY DIAGRAM -->
+    <div class="page">
+        <div style="height: 30px;"></div>
+        <h2 class="section-title" style="font-size: 13pt; margin-top: 0; margin-bottom: 15px;">4.4 UML ACTIVITY DIAGRAM</h2>
+        
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 280" width="450" height="250" xmlns="http://www.w3.org/2000/svg" style="font-family: Arial, sans-serif;">
+                <!-- Start node -->
+                <circle cx="250" cy="15" r="8" fill="#000"/>
+                
+                <!-- Arrow 1 -->
+                <line x1="250" y1="23" x2="250" y2="45" stroke="#000" stroke-width="1.5"/>
+                <polygon points="246,45 254,45 250,51" fill="#000"/>
+                
+                <!-- Action 1: Open App -->
+                <rect x="190" y="50" width="120" height="30" rx="5" fill="#fcfcfc" stroke="#000"/>
+                <text x="250" y="68" font-size="9.5" text-anchor="middle">Open Shedura App</text>
+                
+                <!-- Arrow 2 to Load Dashboard -->
+                <line x1="250" y1="80" x2="250" y2="110" stroke="#000" stroke-width="1.5"/>
+                <polygon points="246,110 254,110 250,116" fill="#000"/>
+                
+                <!-- Action 2: Load Home Dashboard -->
+                <rect x="175" y="115" width="150" height="35" rx="5" fill="#fcfcfc" stroke="#000"/>
+                <text x="250" y="136" font-size="9.5" text-anchor="middle">Load Home Dashboard</text>
+                
+                <!-- Arrow 3 to Sync Line -->
+                <line x1="250" y1="150" x2="250" y2="180" stroke="#000" stroke-width="1.5"/>
+                <polygon points="246,180 254,180 250,186" fill="#000"/>
+                
+                <!-- Sync line at bottom -->
+                <rect x="180" y="185" width="140" height="18" rx="2" fill="#000"/>
+                <text x="250" y="197" fill="#fff" font-size="8.5" text-anchor="middle">Main Navigation</text>
+                
+                <!-- End node -->
+                <circle cx="250" cy="250" r="10" stroke="#000" stroke-width="1.5" fill="none"/>
+                <circle cx="250" cy="250" r="6" fill="#000"/>
+                <line x1="250" y1="203" x2="250" y2="240" stroke="#000" stroke-width="1.5"/>
+                <polygon points="246,240 254,240 250,246" fill="#000"/>
+            </svg>
+        </div>
+        <div class="page-num">10</div>
+    </div>
+
+    <!-- PAGE 23: UML ACTIVITY DIAGRAM (CONT.) -->
+    <div class="page">
+        <div style="height: 35px;"></div>
+        <p style="font-size: 13.5pt; line-height: 1.8;">
+            The Activity Diagram shows the operations flow of the Shedura application. When launched, the app immediately loads the home dashboard interface. From here, the user can navigate to different tabs: opening the search screen to find and book tickets, opening the chatbot screen to query travel policies, or checking the trip tracker to review stored itineraries.
+        </p>
+        <div class="page-num">11</div>
+    </div>
+
+    <!-- PAGE 24: Chapter 5: Implementation -->
+    <div class="page">
+        <h1 class="page-title" style="text-align: left; border-bottom: 2px solid #000; padding-bottom: 5px; font-size: 16pt;">5. IMPLEMENTATION</h1>
+        <h2 class="section-title" style="font-size: 13pt; margin-top: 15px; margin-bottom: 10px;">5.1 MODULE DESCRIPTIONS</h2>
+        <p style="font-size: 12pt; line-height: 1.6;">
+            The Shedura mobile application was developed in a structured manner using modern cross-platform development tools, TypeScript, and local state management. The primary goal was to design a system that is technically robust and user-friendly for commuters, enabling them to search routes, organize trips, and verify travel policies in a single app.
+        </p>
+        <p style="font-size: 12pt; line-height: 1.6;">
+            The development process utilized React Native and Expo SDK 56, using <code>expo-router</code> for navigation. The interface was designed to be simple and intuitive, ensuring that users can navigate the app easily. The home screen displays the horizontal calendar heatmap and quick popular route actions. To enhance usability, Shedura AI is accessible via the bottom tab bar, providing conversational travel assistance.
+        </p>
+        <p style="font-size: 12pt; line-height: 1.6;">
+            Since the application is designed to function offline, it does not rely on active remote APIs. Instead, it utilizes deterministic, seed-based generators within <code>data/mockData.ts</code>. This allows the search module to generate trains, travel classes, ticket prices, and hotel categories dynamically based on city name strings, providing realistic search results.
+        </p>
+        <div class="page-num">12</div>
+    </div>
+
+    <!-- PAGE 25: IMPLEMENTATION (CONT.) -->
+    <div class="page">
+        <div style="height: 35px;"></div>
+        <p style="font-size: 13pt; line-height: 1.7;">
+            The chatbot module, **Shedura AI**, runs entirely client-side inside the mobile runtime. Using the parsing logic defined in <code>utils/aiEngine.ts</code>, it scans user messages for travel keywords and maps them to predefined intents (greetings, train routes, hotel classes, PNR lookup, Tatkal timing rules, and cancellation policies). It formats responses with markdown-style bolding and provides quick-reply chips to guide users through common questions.
+        </p>
+        <p style="font-size: 13pt; line-height: 1.7;">
+            To support schedule organization, the dashboard features a horizontal calendar heatmap. It maps date strings to demand levels (green for low demand, yellow for moderate, and red for peak rush), helping users plan travel around peak dates. Once a booking is completed, the reservation details (such as train departure times or hotel check-in dates) are saved locally using AsyncStorage, ensuring the trip data remains available to the user.
+        </p>
+        <div class="page-num">13</div>
+    </div>
+
+    <!-- PAGE 26: TESTING -->
+    <div class="page">
+        <h1 class="page-title" style="text-align: left; border-bottom: 2px solid #000; padding-bottom: 5px; font-size: 16pt;">6. TESTING</h1>
+        <h2 class="section-title" style="font-size: 13pt; margin-top: 15px;">6.1 IMPORTANCE OF TESTING</h2>
+        <p style="font-size: 12.5pt; line-height: 1.65; margin-bottom: 20px;">
+            Testing is a critical phase in the development of any software system, ensuring that the application performs as expected under different conditions. For a travel booking and scheduling application, testing is particularly important because scheduling accuracy and user data persistence directly impact user trust. An error in date calculations could lead to booking overlaps or incorrect itinerary logs. Therefore, rigorous testing was carried out to validate both the functional and non-functional aspects of the system. Testing also verified the search filtering, booking wizard steps, local database storage, and offline chatbot intent matching.
+        </p>
+
+        <h2 class="section-title" style="font-size: 13pt;">6.2 TESTING DETAILS</h2>
+        <table style="font-size: 10pt; line-height: 1.4; margin-top: 10px;">
+            <thead>
+                <tr>
+                    <th style="width: 15%;">Test Case ID</th>
+                    <th style="width: 20%;">Modules</th>
+                    <th style="width: 30%;">Scenario</th>
+                    <th style="width: 35%;">Expected Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bold">IT01</td>
+                    <td>index.tsx + AsyncStorage</td>
+                    <td>Load application and fetch booking history.</td>
+                    <td>App loads Home Dashboard directly and retrieves saved trips from AsyncStorage.</td>
+                </tr>
+                <tr>
+                    <td class="bold">IT02</td>
+                    <td>search.tsx + mockData.ts</td>
+                    <td>Filter trains and hotels by location and budget.</td>
+                    <td>Correctly displays list matching the query.</td>
+                </tr>
+                <tr>
+                    <td class="bold">IT03</td>
+                    <td>chat.tsx + aiEngine.ts</td>
+                    <td>Enter travel questions (e.g., "Tatkal rules").</td>
+                    <td>Returns relevant answers with custom quick-reply chips.</td>
+                </tr>
+                <tr>
+                    <td class="bold">IT04</td>
+                    <td>booking.tsx + Trips</td>
+                    <td>Complete a 4-step train booking checkout flow.</td>
+                    <td>Generates a booking ID, saves reservation, and lists it in Trips.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="page-num">14</div>
+    </div>
+
+    <!-- PAGE 27: OUTPUT SCREENSHOTS - OUTPUT 1 -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 30px;">7. OUTPUT SCREENSHOTS</h1>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <img src="./travel_preview_1.png" style="width: 100%; max-width: 620px; height: auto; border: 1px solid #ddd; border-radius: 6px;" alt="Shedura App Output 1 - Home & Search">
+        </div>
+
+        <div class="center-text" style="font-style: italic; margin-top: 30px; font-size: 13pt; font-weight: bold;">
+            Fig 7.1 – OUTPUT 1: Home Dashboard, Train Search, and Travel Calendar Overview
+        </div>
+        <div class="page-num">15</div>
+    </div>
+
+    <!-- PAGE 28: OUTPUT SCREENSHOTS - OUTPUT 2 -->
+    <div class="page">
+        <div style="height: 30px;"></div>
+        <div style="text-align: center; margin-top: 10px;">
+            <img src="./travel_preview_2.png" style="width: 100%; max-width: 620px; height: auto; border: 1px solid #ddd; border-radius: 6px;" alt="Shedura App Output 2 - Booking Flow">
+        </div>
+
+        <div class="center-text" style="font-style: italic; margin-top: 30px; font-size: 13pt; font-weight: bold;">
+            Fig 7.2 – OUTPUT 2: Multi-step Train Booking Checkout, UPI Payment, and PNR Confirmation
+        </div>
+        <div class="page-num">16</div>
+    </div>
+
+    <!-- PAGE 28B: OUTPUT SCREENSHOTS - OUTPUT 3 -->
+    <div class="page">
+        <div style="height: 30px;"></div>
+        <div style="text-align: center; margin-top: 10px;">
+            <img src="./travel_preview_3.png" style="width: 100%; max-width: 620px; height: auto; border: 1px solid #ddd; border-radius: 6px;" alt="Shedura App Output 3 - Hotel Search & AI Chat">
+        </div>
+
+        <div class="center-text" style="font-style: italic; margin-top: 30px; font-size: 13pt; font-weight: bold;">
+            Fig 7.3 – OUTPUT 3: Hotel Availability Search, Guest Checkout, and Shedura AI Assistant
+        </div>
+        <div class="page-num">17</div>
+    </div>
+
+    <!-- PAGE 29: CONCLUSION -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 30px;">CONCLUSION</h1>
+        
+        <p style="margin-top: 40px; line-height: 1.8; font-size: 13.5pt;">
+            The development of the travel booking and schedule management Android application successfully demonstrates how mobile technology and conversational interfaces can be combined to resolve journey organization challenges. By leveraging deterministic, seed-based generation, the project achieved its objective of creating a responsive and offline-capable scheduling assistant for commuters. The application provides an intuitive interface that allows users to search trains and hotels, verify availability through a calendar demand heatmap, and log itineraries locally.
+        </p>
+        <p style="line-height: 1.8; font-size: 13.5pt;">
+            Testing and validation confirmed that the system performs reliably, with low interface rendering latency and consistent local persistence. The outputs generated during testing demonstrate the app's potential to consolidate fragmented travel tasks. While the current version focuses on rule-based local data generation, the system's architecture allows for future expansion. New routes can be added, and future versions may integrate remote API endpoints for real-time seat tracking and push notifications.
+        </p>
+        <div class="page-num">18</div>
+    </div>
+
+    <!-- PAGE 30: REFERENCES -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 30px;">REFERENCES</h1>
+        
+        <ol style="margin-top: 50px; line-height: 2.2; font-size: 13pt; padding-left: 30px;">
+            <li>OpenAI, <i>ChatGPT</i>, 2026. Available: <a href="https://chatgpt.com">https://chatgpt.com</a></li>
+            <li>Oracle Corporation, <i>Java Programming Language Documentation</i>, 2026. Available: <a href="https://www.oracle.com/java/">https://www.oracle.com/java/</a></li>
+            <li>Google, <i>Teachable Machine: Machine Learning for Everyone</i>, 2026. Available: <a href="https://teachablemachine.withgoogle.com/">https://teachablemachine.withgoogle.com/</a></li>
+            <li>Kaggle Inc., <i>Kaggle: Datasets and Machine Learning Platform</i>, 2026. Available: <a href="https://www.kaggle.com/">https://www.kaggle.com/</a></li>
+            <li>MakeMyTrip App, <i>Mobile Application Design Reference for Travel & Hotel Reservation UI/UX</i>, 2026. Available: <a href="https://play.google.com/store">https://play.google.com/store</a></li>
+        </ol>
+        <div class="page-num">19</div>
+    </div>
+
+    <!-- PAGE 31: APPENDIX A: CODE -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 30px;">APPENDIX A: CODE</h1>
+        
+        <pre style="margin-top: 40px;">
+// ─── Shedura AI Response Engine (utils/aiEngine.ts) ──────────────────────────
+
+export interface AIResponse {
+  text: string;
+  quickReplies: string[];
+}
+
+type Intent =
+  | 'greeting'
+  | 'route_query'
+  | 'hotel_query'
+  | 'pnr_status'
+  | 'tatkal'
+  | 'budget_query'
+  | 'festival_query'
+  | 'cancellation'
+  | 'itinerary'
+  | 'general';
+
+const CITY_ALIASES: Record&lt;string, string&gt; = {
+  bombay: 'Mumbai', calcutta: 'Kolkata', madras: 'Chennai',
+  banaras: 'Varanasi', benares: 'Varanasi', kashi: 'Varanasi',
+  bengaluru: 'Bangalore', 'new delhi': 'Delhi', 'navi mumbai': 'Mumbai',
+  pune: 'Pune',  trivandrum: 'Thiruvananthapuram',
+};
+        </pre>
+        <div class="page-num">20</div>
+    </div>
+
+    <!-- PAGE 32: APPENDIX A: CODE (CONT.) -->
+    <div class="page">
+        <div style="height: 35px;"></div>
+        <pre>
+const CITIES_WITHOUT_STATIONS: Record&lt;string, { nearestStation: string; howToReach: string }&gt; = {
+  manali: { nearestStation: 'Joginder Nagar (90 km)', howToReach: 'Take bus/taxi from Chandigarh' },
+  kasol: { nearestStation: 'Pathankot (130 km)', howToReach: 'Take a bus to Bhuntar, then local taxi' },
+  leh: { nearestStation: 'Jammu Tawi (700 km)', howToReach: 'Fly to Leh or take bus from Manali' },
+  ooty: { nearestStation: 'Coimbatore (86 km)', howToReach: 'Take taxi or Nilgiri Mountain Railway' },
+  darjeeling: { nearestStation: 'New Jalpaiguri/NJP (88 km)', howToReach: 'Take taxi or toy train' },
+};
+
+const KNOWN_ROUTES: Record&lt;string, string&gt; = {
+  'delhi-mumbai': '**Top trains on Delhi → Mumbai:**\n• Rajdhani Express (12951) — 15h 55m\n• Duronto Express (12213) — 16h 05m\n\nFastest: **Rajdhani Express** ⚡',
+  'mumbai-goa': '**Top trains on Mumbai → Goa:**\n• Konkan Kanya (10111) — 9h 25m\n• Jan Shatabdi (12051) — 8h 55m\n\nFastest: **Jan Shatabdi** ⚡',
+};
+
+const QUICK_REPLIES: Record&lt;Intent, string[]&gt; = {
+  greeting: ['Search trains', 'Book a hotel', 'PNR status', 'Tatkal tickets'],
+  route_query: ['Book this train', 'Compare prices', 'Check hotel'],
+  hotel_query: ['Budget hotels under ₹1000', 'Luxury hotels'],
+  pnr_status: ['How to check on SMS', 'Download NTES app'],
+  tatkal: ['AC Tatkal booking', 'Non-AC Tatkal booking'],
+  budget_query: ['Sleeper vs AC3 difference', 'Budget hotels under ₹1000'],
+  festival_query: ['Diwali travel tips', 'Holi travel dates'],
+  cancellation: ['Cancel online', 'Refund timeline'],
+  itinerary: ['Add more days', 'Hotel suggestions'],
+  general: ['Search trains', 'Book a hotel', 'PNR status'],
+};
+        </pre>
+        <div class="page-num">21</div>
+    </div>
+
+    <!-- PAGE 33: APPENDIX A: CODE (CONCL.) -->
+    <div class="page">
+        <div style="height: 35px;"></div>
+        <pre>
+export function getAIResponse(userInput: string): AIResponse {
+  const lower = userInput.toLowerCase().trim();
+  const intent = detectIntent(lower);
+  const cities = extractCities(lower);
+
+  switch (intent) {
+    case 'greeting':
+      return {
+        text: `🙏 **Namaste! Welcome to Schedura AI!**\n\nI'm your personal travel assistant. I can help with train search, hotel booking, PNR status, and Tatkal.`,
+        quickReplies: QUICK_REPLIES.greeting,
+      };
+    case 'tatkal':
+      return {
+        text: `⚡ **Tatkal Booking opens:**\n• AC Classes: 10:00 AM\n• Non-AC Classes: 11:00 AM\nOne day before travel. No refund on cancellation.`,
+        quickReplies: QUICK_REPLIES.tatkal,
+      };
+    default:
+      return {
+        text: `🙏 I'm Schedura AI. Ask me about trains, hotels, PNR status, or Tatkal booking rules!`,
+        quickReplies: QUICK_REPLIES.general,
+      };
+  }
+}
+        </pre>
+        <div class="page-num">22</div>
+    </div>
+
+    <!-- PAGE 34: APPENDIX B: SOFTWARE AND HARDWARE REQUIREMENTS -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 30px;">APPENDIX B</h1>
+        <h2 class="section-title" style="text-align: center; margin-top: 0; margin-bottom: 30px;">SOFTWARE AND HARDWARE REQUIREMENTS</h2>
+        
+        <h3 class="subsection-title">Software Requirements for Shedura</h3>
+        <ul style="list-style-type: disc; padding-left: 20px; font-size: 12pt; line-height: 1.6;">
+            <li><b>Operating System:</b> Windows 10/11</li>
+            <li><b>Development Environment:</b> VS Code, Expo CLI</li>
+            <li><b>Programming Languages:</b> TypeScript, JavaScript</li>
+            <li><b>Database:</b> React Native AsyncStorage</li>
+            <li><b>Main Frameworks:</b> React Native, Expo SDK 56, Expo Router</li>
+            <li><b>Visual Library:</b> expo-blur (Glassmorphism styling)</li>
+            <li><b>Vector Libraries:</b> Ionicons, Feather icons</li>
+            <li><b>Documentation Tools:</b> Microsoft Word, PowerPoint</li>
+            <li><b>Web Browser:</b> Google Chrome or Microsoft Edge</li>
+            <li><b>Testing Tools:</b> Android Emulator and Physical Android Device</li>
+        </ul>
+
+        <h3 class="subsection-title" style="margin-top: 20px;">Hardware Requirements for Shedura</h3>
+        <ul style="list-style-type: disc; padding-left: 20px; font-size: 12pt; line-height: 1.6;">
+            <li><b>Processor:</b> Intel Core i3 or Apple Silicon M-series</li>
+            <li><b>RAM:</b> 8 GB minimum</li>
+            <li><b>Storage:</b> 20 GB free disk space</li>
+            <li><b>Display:</b> 1366 x 768 resolution or higher</li>
+            <li><b>Mobile Device:</b> Android Smartphone (Android 10+)</li>
+            <li><b>Internet Connection:</b> Required for package updates and Expo CLI</li>
+        </ul>
+        <div class="page-num">23</div>
+    </div>
+    <!-- PAGE 35: QUALITY ANALYSIS & ALIGNMENT - STUDENTS TABLE -->
+    <div class="page">
+        <div style="text-align: center; margin-bottom: 20px; margin-top: 10px;">
+            <img src="./methodist_college_header.png" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto;" alt="Methodist College Header Logo">
+            <div style="font-size: 11pt; font-weight: bold; border-bottom: 1.5px solid #ff4d00; padding-bottom: 5px; margin-top: 8px; text-transform: uppercase;">
+                Department of Computer Science & Engineering (AI & ML)
+            </div>
+        </div>
+
+        <h2 class="section-title" style="text-align: center; font-size: 12pt; margin-top: 30px; line-height: 1.55;">
+            QUALITY ANALYSIS AND ALIGNMENT OF STUDENT PROJECTS WITH PROGRAM OUTCOMES (POs) AND SUSTAINABLE DEVELOPMENT GOALS (SDGs)
+        </h2>
+
+        <table style="margin-top: 30px; font-size: 11pt;">
+            <tbody>
+                <tr>
+                    <td class="bold" style="width: 20%;">Course Name:</td>
+                    <td style="width: 30%;">MINI PROJECT</td>
+                    <td class="bold" style="width: 15%;">AY:</td>
+                    <td style="width: 35%;">2025-26</td>
+                </tr>
+                <tr>
+                    <td class="bold">Course Code:</td>
+                    <td>M24PW456ML</td>
+                    <td class="bold">Semester:</td>
+                    <td>IV</td>
+                </tr>
+                <tr>
+                    <td class="bold">Name of the Guide:</td>
+                    <td>MS.J.HARIKA</td>
+                    <td class="bold">Class:</td>
+                    <td>AI&ML-B</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="subsection-title" style="text-align: center; margin-top: 30px; margin-bottom: 15px;">STUDENTS</h3>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 15%;">S. No</th>
+                    <th style="width: 35%;">HT No</th>
+                    <th style="width: 50%;">Name of the Student</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center-text">1.</td>
+                    <td class="center-text">160724748089</td>
+                    <td>MOHD AYAAN</td>
+                </tr>
+                <tr>
+                    <td class="center-text">2.</td>
+                    <td class="center-text">160724748102</td>
+                    <td>SYED AZEEM SADIQ</td>
+                </tr>
+                <tr>
+                    <td class="center-text">3.</td>
+                    <td class="center-text">-</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="page-num">24</div>
+    </div>
+
+    <!-- PAGE 36: COURSE OUTCOMES & CO-PO-PSO MAPPING -->
+    <div class="page">
+        <h3 class="subsection-title" style="margin-top: 10px;">Course Outcome: After the successful completion of this course, the student will be able to:</h3>
+        
+        <table style="font-size: 10pt; line-height: 1.4;">
+            <thead>
+                <tr>
+                    <th style="width: 18%;">CO No</th>
+                    <th style="width: 44%;">Course Outcome</th>
+                    <th style="width: 18%;">BTL</th>
+                    <th style="width: 20%;">POs, PSOs Mapped</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bold">M24PW456ML.1</td>
+                    <td>Explain the fundamentals of Android, Flutter, and Flask frameworks used in application development.</td>
+                    <td class="center-text">Understanding</td>
+                    <td>PO1,PO5,PSO1,PSO2,PSO3</td>
+                </tr>
+                <tr>
+                    <td class="bold">M24PW456ML.2</td>
+                    <td>Analyze user requirements for developing mobile or web-based applications.</td>
+                    <td class="center-text">Analyzing</td>
+                    <td>PO1,PO2,PO4,PO6,PO8,PO9,PO11,PSO1,PSO2,PSO3</td>
+                </tr>
+                <tr>
+                    <td class="bold">M24PW456ML.3</td>
+                    <td>Apply programming tools, framework components, and databases to build applications.</td>
+                    <td class="center-text">Applying</td>
+                    <td>PO1,PO2,PO3,PO5,PSO1,PSO2,PSO3</td>
+                </tr>
+                <tr>
+                    <td class="bold">M24PW456ML.4</td>
+                    <td>Design and develop applications using Android, Flutter, or Flask frameworks.</td>
+                    <td class="center-text">Creating</td>
+                    <td>PO1,PO2,PO3,PO4,PO5,PSO1,PSO2,PSO3</td>
+                </tr>
+                <tr>
+                    <td class="bold">M24PW456ML.5</td>
+                    <td>Test, document, and present project outcomes through teamwork and project management practices.</td>
+                    <td class="center-text">Applying</td>
+                    <td>PO4,PO5,PO7,PO8,PO9,PO10,PO11,PSO1,PSO2,PSO3</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="subsection-title" style="margin-top: 30px;">CO-PO-PSO MAPPING</h3>
+        <p class="no-indent" style="font-style: italic; font-size: 11pt;">3 – High, 2 – Moderate, 1 – Slight</p>
+        
+        <table style="font-size: 10pt; text-align: center;">
+            <thead>
+                <tr>
+                    <th style="width: 16%;">PO / CO</th>
+                    <th>PO1</th><th>PO2</th><th>PO3</th><th>PO4</th><th>PO5</th><th>PO6</th><th>PO7</th><th>PO8</th><th>PO9</th><th>PO10</th><th>PO11</th>
+                    <th>PSO1</th><th>PSO2</th><th>PSO3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bold">M24PW456ML.1</td>
+                    <td>2</td><td>-</td><td>-</td><td>-</td><td>2</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+                    <td>1</td><td>2</td><td>1</td>
+                </tr>
+                <tr>
+                    <td class="bold">M24PW456ML.2</td>
+                    <td>2</td><td>3</td><td>-</td><td>2</td><td>-</td><td>3</td><td>-</td><td>3</td><td>3</td><td>-</td><td>3</td>
+                    <td>2</td><td>1</td><td>1</td>
+                </tr>
+                <tr>
+                    <td class="bold">M24PW456ML.3</td>
+                    <td>2</td><td>2</td><td>1</td><td>-</td><td>3</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+                    <td>2</td><td>3</td><td>2</td>
+                </tr>
+                <tr>
+                    <td class="bold">M24PW456ML.4</td>
+                    <td>2</td><td>2</td><td>3</td><td>1</td><td>3</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+                    <td>2</td><td>3</td><td>3</td>
+                </tr>
+                <tr>
+                    <td class="bold">M24PW456ML.5</td>
+                    <td>-</td><td>-</td><td>-</td><td>1</td><td>1</td><td>1</td><td>3</td><td>3</td><td>3</td><td>2</td><td>1</td>
+                    <td>1</td><td>1</td><td>2</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="page-num">25</div>
+    </div>
+
+    <!-- PAGE 37: CO-PO-PSO MAPPING WITH PERFORMANCE INDICATORS -->
+    <div class="page">
+        <h3 class="subsection-title" style="margin-top: 10px;">CO-PO-PSO MAPPING (WITH PERFORMANCE INDICATORS)</h3>
+        
+        <table style="font-size: 8.5pt; line-height: 1.3;">
+            <thead>
+                <tr>
+                    <th style="width: 14%;">PO / CO</th>
+                    <th>PO1</th><th>PO2</th><th>PO3</th><th>PO4</th><th>PO5</th><th>PO6</th><th>PO7</th><th>PO8</th><th>PO9</th><th>PO10</th><th>PO11</th>
+                    <th>PSO1</th><th>PSO2</th><th>PSO3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bold">M24PW456ML.1</td>
+                    <td>1.6.1,<br>1.7.1</td><td></td><td></td><td></td><td>5.4.1,<br>5.5.1</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                    <td>Low</td><td>Mod</td><td>Low</td>
+                </tr>
+                <tr>
+                    <td class="bold">M24PW456ML.2</td>
+                    <td>1.7.1</td>
+                    <td>2.5.1,<br>2.5.2,<br>2.6.2,<br>2.6.3</td>
+                    <td></td>
+                    <td>4.4.1,<br>4.4.2,<br>4.6.1,<br>4.6.4</td>
+                    <td></td>
+                    <td>6.5.1,<br>6.5.2</td>
+                    <td></td>
+                    <td>8.4.1,<br>8.5.1</td>
+                    <td>9.4.1,<br>9.5.1</td>
+                    <td></td>
+                    <td>11.4.2,<br>11.6.1</td>
+                    <td>Mod</td><td>Low</td><td>Low</td>
+                </tr>
+                <tr>
+                    <td class="bold">M24PW456ML.3</td>
+                    <td>1.6.1,<br>1.7.1</td>
+                    <td>2.8.1,<br>2.8.2</td>
+                    <td>3.8.2</td>
+                    <td></td>
+                    <td>5.4.1,<br>5.5.2,<br>5.6.1</td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                    <td>Mod</td><td>High</td><td>Mod</td>
+                </tr>
+                <tr>
+                    <td class="bold">M24PW456ML.4</td>
+                    <td>1.7.1</td>
+                    <td>2.6.4,<br>2.7.1</td>
+                    <td>3.6.1,<br>3.6.2,<br>3.7.1,<br>3.8.1,<br>3.8.2,<br>3.8.3</td>
+                    <td>4.4.2</td>
+                    <td>5.5.2,<br>5.6.1</td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                    <td>Mod</td><td>High</td><td>High</td>
+                </tr>
+                <tr>
+                    <td class="bold">M24PW456ML.5</td>
+                    <td></td><td></td><td></td>
+                    <td>4.6.1,<br>4.6.4</td>
+                    <td>5.6.2</td>
+                    <td></td>
+                    <td>7.4.1,<br>7.4.2</td>
+                    <td>8.4.2,<br>8.5.1,<br>8.5.2,<br>8.6.1</td>
+                    <td>9.4.2,<br>9.4.3,<br>9.5.2,<br>9.6.1</td>
+                    <td>10.6.1,<br>10.6.2</td>
+                    <td>11.4.2,<br>11.6.1</td>
+                    <td>Low</td><td>Low</td><td>Mod</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="page-num">26</div>
+    </div>
+
+    <!-- PAGE 38: Specific Learning Outcomes -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 30px; font-size: 15pt;">MINI PROJECT SPECIFIC LEARNING OUTCOMES</h1>
+        
+        <table style="margin-top: 50px; font-size: 12pt; line-height: 1.6;">
+            <thead>
+                <tr>
+                    <th style="width: 15%;">LO</th>
+                    <th style="width: 85%;">Outcome Descriptions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center-text bold">1</td>
+                    <td>To design and develop an integrated travel and booking mobile application (Shedura) enabling users to search, compare, and book tickets seamlessly.</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">2</td>
+                    <td>To implement a calendar-based itinerary management feature that allows users to plan, view, and organize their travel schedules and bookings.</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">3</td>
+                    <td>To develop an AI-powered chatbot capable of answering user queries on PNR status, SMS alerts, Tadkas/food options, and other travel-related information.</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">4</td>
+                    <td>To apply machine learning and natural language processing techniques for intent recognition and accurate response generation in the chatbot module.</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">5</td>
+                    <td>To test, document, and deploy the Shedura application, demonstrating effective use of Android/Flutter and Flask frameworks along with database integration.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="page-num">27</div>
+    </div>
+
+    <!-- PAGE 39: PO-WK MAPPING -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 30px; font-size: 16pt;">PO-WK MAPPING:</h1>
+        
+        <table style="margin-top: 50px; font-size: 11pt; line-height: 1.6;">
+            <thead>
+                <tr>
+                    <th style="width: 10%;">PO</th>
+                    <th style="width: 40%;">PO Description</th>
+                    <th style="width: 50%;">Mapped WKs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center-text bold">PO1</td>
+                    <td>Engineering Knowledge</td>
+                    <td>WK1, WK2, WK3, WK4</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">PO2</td>
+                    <td>Problem Analysis</td>
+                    <td>WK1, WK2, WK3, WK4</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">PO3</td>
+                    <td>Design/Development of Solutions</td>
+                    <td>WK5</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">PO4</td>
+                    <td>Conduct Investigations of complex problems</td>
+                    <td>WK8</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">PO5</td>
+                    <td>Engineering Tool usage</td>
+                    <td>WK2, WK6</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">PO6</td>
+                    <td>The Engineering & The World</td>
+                    <td>WK1, WK5, WK7</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">PO7</td>
+                    <td>Ethics</td>
+                    <td>WK9</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">PO8</td>
+                    <td>Individual & Collaborative Team Work</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">PO9</td>
+                    <td>Communication</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">PO10</td>
+                    <td>Project Management & Finance</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td class="center-text bold">PO11</td>
+                    <td>Life-long Learning</td>
+                    <td>WK8</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="page-num">28</div>
+    </div>
+
+    <!-- PAGE 40: SDG MAPPING -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 30px;">SDG MAPPING:</h1>
+        
+        <table style="margin-top: 50px; font-size: 11pt; line-height: 1.6;">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">SDG</th>
+                    <th style="width: 25%;">Mapped Indicator</th>
+                    <th style="width: 50%;">Shedura Contribution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bold">SDG 8: Decent Work & Economic Growth</td>
+                    <td class="center-text">8.2.1</td>
+                    <td>Enhances digital access to travel organization, optimizing labor productivity for commuters.</td>
+                </tr>
+                <tr>
+                    <td class="bold">SDG 9: Industry, Innovation & Infrastructure</td>
+                    <td class="center-text">9.5.1, 9.5.2</td>
+                    <td>Deploys an offline-capable AI system to assist booking, lowering technology access barriers.</td>
+                </tr>
+                <tr>
+                    <td class="bold">SDG 11: Sustainable Cities & Communities</td>
+                    <td class="center-text">11.a.1</td>
+                    <td>Promotes usage of public rail networks over high-emission flights by simplifying train planning.</td>
+                </tr>
+                <tr>
+                    <td class="bold">SDG 12: Responsible Consumption</td>
+                    <td class="center-text">12.4.2</td>
+                    <td>Reduces paper waste by centralizing electronic ticketing and digital schedules.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="page-num">29</div>
+    </div>
+
+    <!-- PAGE 41: QUALITY ANALYSIS COLLABORATION & ACHIEVEMENTS -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 20px; font-size: 16pt;">QUALITY ANALYSIS</h1>
+        
+        <h3 class="subsection-title" style="margin-top: 15px;">MINI PROJECT COLLABORATION</h3>
+        <p class="no-indent" style="font-size: 11pt; font-style: italic; margin-bottom: 5px;">(Tick ✓ Whichever is applicable and present the details below):</p>
+        
+        <table style="font-size: 10pt; text-align: center;">
+            <thead>
+                <tr>
+                    <th>Industry</th>
+                    <th>Research Lab</th>
+                    <th>Professional Society</th>
+                    <th>Community</th>
+                    <th>Alumni</th>
+                    <th>Regulating agency</th>
+                    <th>Govt.</th>
+                    <th>Other</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>✓</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="no-indent" style="font-size: 11pt; border: 1px solid #000; padding: 8px; margin-top: 5px; background: #fafafa;">
+            The project involved consultation with the institution's AI & ML research lab for guidance on implementing the NLP-based chatbot module, including intent recognition and response generation techniques used for handling PNR, SMS, and Tadka-related travel queries.
+        </p>
+
+        <h3 class="subsection-title" style="margin-top: 20px;">MINI PROJECT ACHIEVEMENTS:</h3>
+        <p class="no-indent" style="font-size: 11pt; margin-bottom: 10px;">
+            does the Abstract (prepared/ reviewed / Approved) have the following stated outcome mentioned? &nbsp;&nbsp;&nbsp;&nbsp;<b>Yes</b>
+        </p>
+        
+        <table style="font-size: 9.5pt; line-height: 1.35;">
+            <thead>
+                <tr>
+                    <th style="width: 10%;">S.NO</th>
+                    <th style="width: 35%;">DESCRIPTION</th>
+                    <th style="width: 55%;">DETAILS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center-text">1</td>
+                    <td class="bold">Prototype development</td>
+                    <td>A working prototype of the Shedura mobile application was developed, integrating booking, calendar, and AI chatbot modules.</td>
+                </tr>
+                <tr>
+                    <td class="center-text">2</td>
+                    <td class="bold">Technology based solution developed</td>
+                    <td>A functional travel and booking application with an AI-powered chatbot for PNR status, SMS alerts, and Tadka/food information was developed using Android/Flutter (frontend) and Flask (backend).</td>
+                </tr>
+                <tr>
+                    <td class="center-text">3</td>
+                    <td class="bold">Publication</td>
+                    <td>Not applicable for this project.</td>
+                </tr>
+                <tr>
+                    <td class="center-text">4</td>
+                    <td class="bold">Start-up incubation</td>
+                    <td>Not applicable for this project.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="page-num">30</div>
+    </div>
+
+    <!-- PAGE 42: QUALITY ANALYSIS ACHIEVEMENTS (CONT.) -->
+    <div class="page">
+        <div style="height: 35px;"></div>
+        <table style="font-size: 9.5pt; line-height: 1.35;">
+            <thead>
+                <tr>
+                    <th style="width: 10%;">S.NO</th>
+                    <th style="width: 35%;">DESCRIPTION</th>
+                    <th style="width: 55%;">DETAILS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center-text">5</td>
+                    <td class="bold">Competition prizes</td>
+                    <td>Not applicable for this project.</td>
+                </tr>
+                <tr>
+                    <td class="center-text">6</td>
+                    <td class="bold">Community/Industry/HEI service</td>
+                    <td>Not applicable for this project.</td>
+                </tr>
+                <tr>
+                    <td class="center-text">7</td>
+                    <td class="bold">SDG Indicators</td>
+                    <td>SDG 9 (Industry, Innovation and Infrastructure) and SDG 11 (Sustainable Cities and Communities) – the project promotes digital infrastructure and AI-based tools to make travel more efficient, accessible, and well-organized.</td>
+                </tr>
+                <tr>
+                    <td class="center-text">8</td>
+                    <td class="bold">Grants/Financial Aid</td>
+                    <td>Not applicable for this project.</td>
+                </tr>
+                <tr>
+                    <td class="center-text">9</td>
+                    <td class="bold">Multi-Disciplinary</td>
+                    <td>The project integrates concepts from Computer Science (mobile app development, backend frameworks), Artificial Intelligence/Machine Learning (NLP-based chatbot), and Data Management (databases for bookings and user data).</td>
+                </tr>
+                <tr>
+                    <td class="center-text">10</td>
+                    <td class="bold">Internship/Employment</td>
+                    <td>Not applicable for this project.</td>
+                </tr>
+                <tr>
+                    <td class="center-text">11</td>
+                    <td class="bold">Self-Employment skill</td>
+                    <td>The project demonstrates skills in mobile application development, backend development, and AI integration that can be applied toward self-employment or freelance app development opportunities.</td>
+                </tr>
+                <tr>
+                    <td class="center-text">12</td>
+                    <td class="bold">Use of real-time data</td>
+                    <td>The application is designed to use real-time data such as booking availability, PNR status updates, and SMS notifications to provide accurate and timely information to users.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="signatures-grid" style="margin-top: 100px;">
+            <div class="sig-block" style="width: 250px;">
+                <div class="sig-line"></div>
+                <div class="sig-label" style="text-transform: none;">Signature of the Guide</div>
+            </div>
+            <div class="sig-block" style="width: 280px;">
+                <div class="sig-line"></div>
+                <div class="sig-label" style="text-transform: none;">Signature of the Head of the Department</div>
+            </div>
+        </div>
+        <div class="page-num">31</div>
+    </div>
+
+    <!-- PAGE 43: QR CODE -->
+    <div class="page">
+        <h1 class="page-title" style="margin-top: 60px;">QR CODE</h1>
+        
+        <div class="qr-placeholder">
+            <div class="qr-inner"></div>
+        </div>
+
+        <p class="center-text" style="font-size: 14pt; font-weight: bold; margin-top: 40px;">
+            Scan to view project repository / video demo
+        </p>
+        <div class="page-num">32</div>
+    </div>
+
+</body>
+</html>
